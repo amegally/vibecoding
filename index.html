@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn to build apps using Cursor & Vibe Coding in just 3 hours! No coding experience required. Join us at KIIN Living, Medellín for an immersive workshop.">
+    <meta name="description" content="Learn to build apps using Cursor & Vibe Coding. Transform your ideas into reality with AI-powered development. No coding experience required.">
     <meta name="keywords" content="vibe coding, AI coding, app development, Medellín, coding workshop, no-code, low-code, Cursor">
     <meta name="author" content="Vibe Coding">
-    <meta property="og:title" content="Vibe Coding Workshop - Build Your Ideas with AI">
-    <meta property="og:description" content="Learn to make apps using Cursor & Vibe Coding in 3 hours! No coding experience required.">
+    <meta property="og:title" content="Vibe Coding - Build Your Ideas with AI">
+    <meta property="og:description" content="Transform your ideas into reality with AI-powered development. No coding experience required.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vibe Coding Workshop">
-    <meta name="twitter:description" content="Learn to make apps using Cursor & Vibe Coding in 3 hours! No coding experience required.">
+    <meta name="twitter:title" content="Vibe Coding">
+    <meta name="twitter:description" content="Transform your ideas into reality with AI-powered development. No coding experience required.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://vibecoding.com/workshop">
-    <title>Vibe Coding Workshop - Build Your Ideas with AI</title>
+    <link rel="canonical" href="https://vibecoding.com">
+    <title>Vibe Coding - Build Your Ideas with AI</title>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" as="style">
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" as="script">
-    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="script.min.js" as="script">
     
     <!-- Load fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,26 @@
     
     <!-- Critical CSS inline -->
     <style>
+        :root {
+            --primary-color: #000;
+            --secondary-color: #f5e642;
+            --highlight-color: #ff3860;
+            --text-color: #2c2c2c;
+            --background-color: #f5f5f5;
+            --container-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+            --container-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            min-height: 100vh;
+            margin: 0;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
         .loading {
             opacity: 0;
             transition: opacity 0.3s ease-in;
@@ -39,7 +59,7 @@
         #loading-screen {
             position: fixed;
             inset: 0;
-            background: #f5f5f5;
+            background: var(--secondary-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -50,9 +70,271 @@
             opacity: 0;
             pointer-events: none;
         }
+
+        /* Content-specific styles */
+        .page-wrapper {
+            min-height: 100vh;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .page-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            background: var(--container-bg);
+            border-radius: 16px;
+            box-shadow: var(--container-shadow);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            padding: 3rem 2rem;
+            background: var(--secondary-color);
+            overflow: hidden;
+        }
+
+        #p5-container {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .word {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            letter-spacing: -1px;
+            line-height: 0.9;
+            color: #000;
+            text-shadow: 2px 2px 0 var(--highlight-color);
+            margin: 0 0 0.5rem;
+        }
+
+        .title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            line-height: 1;
+            margin: 0.5rem 0;
+            color: #000;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-weight: 700;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+            background-color: #000;
+            padding: 4px 8px;
+            display: inline-block;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .main-content {
+            padding: 2rem;
+            background: var(--container-bg);
+        }
+
+        .section {
+            margin: 3rem auto;
+            max-width: 800px;
+        }
+
+        .section:first-child {
+            margin-top: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--highlight-color);
+        }
+
+        .section-content {
+            font-size: 0.95rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: rgba(245, 245, 245, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .feature-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+            margin: 3rem -2rem -2rem;
+        }
+
+        .primary-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--highlight-color);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 0.5rem;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .section {
+                margin: 2rem auto;
+            }
+            
+            .feature-grid {
+                gap: 1rem;
+            }
+            
+            .cta-section {
+                padding: 2rem 1rem;
+                margin: 2rem -1.5rem -1.5rem;
+            }
+        }
+
+        #background-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* List styling */
+        .section-content ul {
+            padding-left: 1.2rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .section-content li::before {
+            content: '→';
+            position: absolute;
+            left: -1.2rem;
+            color: var(--highlight-color);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .resource-item {
+            padding: 1.5rem;
+            background: rgba(245, 245, 245, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .resource-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--container-shadow);
+            background: var(--container-bg);
+        }
+
+        .resource-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .resource-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .waitlist-cta {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
     </style>
     
-    <!-- Load stylesheets -->
     <link rel="stylesheet" href="styles.css">
     
     <!-- Load scripts -->
@@ -62,68 +344,72 @@
 <body class="loading">
     <div id="loading-screen">Loading...</div>
     <div id="background-canvas"></div>
-    <div class="container">
-        <div class="flyer">
-            <div id="p5-container"></div>
-            <div class="content">
-                <div class="header-section">
-                    <div class="title-group">
-                        <h1 class="word">UNLOCK VIBE CODING</h1>
-                        <div class="subtitle-container">
-                            <h1 class="title">BUILD YOUR IDEAS WITH AI</h1>
-                            <h2 class="subtitle">NO CODING EXPERIENCE REQUIRED!</h2>
+    
+    <div class="page-wrapper">
+        <div class="page-container">
+            <section class="hero">
+                <div id="p5-container"></div>
+                <div class="hero-content">
+                    <h1 class="word">VIBE CODING</h1>
+                    <h2 class="title">MASTER AI-POWERED DEVELOPMENT</h2>
+                    <h3 class="subtitle">ONLINE COURSE COMING SOON</h3>
+                </div>
+            </section>
+
+            <div class="main-content">
+                <section class="section">
+                    <h2 class="section-title">Join the Waitlist</h2>
+                    <div class="section-content">
+                        <p>Be the first to know when our comprehensive online course launches. Get early access and special pricing when you join our waitlist today.</p>
+                        <div class="waitlist-cta">
+                            <a href="https://tally.so/r/mKG1rg" class="primary-button" target="_blank" rel="noopener noreferrer">Sign Up for Waitlist</a>
                         </div>
                     </div>
-                </div>
-                
-                <div class="divider"></div>
-                
-                <div class="main-text">
-                  <p class="highlight">Learn to make apps using Cursor & Vibe Coding in 3 hours!</p>
-                    <p>MacBook Required. No coding skills necessary but comfort with technology is recommended. Spots limited!</p>
-                </div>
-                
-                <div class="divider"></div>
-                
-                <div class="details-container">
-                    <div class="details">
-                        <div class="detail-item">
-                            <span class="label">When:</span> Wed, March 26, 7–10 PM
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Where:</span> KIIN Living, Medellín
-                        </div>
-                        <!--
-                        <div class="detail-item">
-                            <span class="label">Cost:</span> $100 USD + $30K COP consumable. Includes free access to an online course ($250 USD value).
-                        </div>
-                        -->
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">What You'll Learn</h2>
+                    <div class="section-content">
+                        <ul>
+                            <li>How to use AI to write, debug, and optimize code</li>
+                            <li>Building web applications without traditional coding</li>
+                            <li>Modern development workflows and best practices</li>
+                            <li>Turning your ideas into functional prototypes</li>
+                            <li>Understanding and leveraging AI capabilities</li>
+                        </ul>
                     </div>
-                </div>
-                
-                
-        
-                
-                <div class="divider"></div>
-                
-                <div class="cta">
-                    <a href="https://lu.ma/3lurbvry" class="cta-button">
-                        <span class="button-text">RSVP @ lu.ma/3lurbvry</span>
-                    </a>
-                    <p class="cta-text">DM for info and special Paisa Pricing</p>
-                </div>
-                
-                <div class="footer">
-                    <p>Flyer made with the same AI tools you'll learn</p>
-                </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Resources</h2>
+                    <div class="section-content">
+                        <div class="resource-grid">
+                            <a href="workshop.html" class="resource-item">
+                                <h3 class="resource-title">Live Workshop</h3>
+                                <p>Join our hands-on workshop in Medellín to get started with AI-powered development.</p>
+                            </a>
+                            <a href="core.html" class="resource-item">
+                                <h3 class="resource-title">Core Concepts</h3>
+                                <p>Learn the fundamentals of AI-powered development and best practices.</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="cta-section">
+                    <div id="p5-container-footer"></div>
+                    <h2 class="section-title">Ready to Start?</h2>
+                    <p class="section-content">Join our waitlist today and be part of the AI-powered development revolution.</p>
+                    <p><strong>Early access and special pricing for waitlist members!</strong></p>
+                    <br>
+                    <a href="https://tally.so/r/mKG1rg" class="primary-button" target="_blank" rel="noopener noreferrer">Sign Up for Waitlist</a>
+                </section>
             </div>
         </div>
     </div>
-    
+
     <script>
-        // Inline critical initialization
         document.addEventListener('DOMContentLoaded', () => {
-            // Remove loading screen once everything is ready
             window.addEventListener('load', () => {
                 document.body.classList.add('loaded');
                 document.getElementById('loading-screen').classList.add('hidden');
