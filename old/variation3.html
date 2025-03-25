@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero-to-App: Variation 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #ff6b6b;
+            --highlight-color: #4ecdc4;
+            --light-color: #f7fff7;
+            --button-color: #ff6b6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .flyer {
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 1/1;
+            background: var(--secondary-color);
+            border-radius: 20px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.1),
+                0 1px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #p5-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            color: var(--primary-color);
+        }
+
+        /* Header section */
+        .header-section {
+            margin-bottom: 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .title-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .word {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 0;
+            color: var(--primary-color);
+            line-height: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle-container {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--accent-color), var(--highlight-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            border: 2px solid var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        /* Main text */
+        .main-text {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            margin-top: 20px;
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 15px;
+            position: relative;
+            overflow: visible;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            font-family: 'DM Sans', sans-serif;
+            text-align: center;
+        }
+
+        .highlight {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: block;
+            line-height: 1.4;
+        }
+
+        /* Details section */
+        .details-container {
+            margin-bottom: 0;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .details {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            position: relative;
+            overflow: visible;
+            padding-top: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .detail-item {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            padding: 10px 15px;
+            border-radius: 10px;
+        }
+
+        .label {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-right: 10px;
+            min-width: 70px;
+        }
+
+        .special {
+            background-color: var(--accent-color);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            position: relative;
+            border-left: none;
+            padding-top: 15px;
+            margin-bottom: 0;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .special .label {
+            color: white;
+            margin-right: 5px;
+            min-width: auto;
+        }
+
+        /* CTA section */
+        .cta {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            margin-top: auto;
+        }
+
+        .cta-button {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .button-text {
+            display: block;
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            position: relative;
+            text-align: center;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-text {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-style: normal;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .footer {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            text-align: center;
+            font-style: italic;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0;
+            background: transparent;
+            padding-top: 15px;
+            border-radius: 0;
+            margin-top: 15px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .flyer {
+                max-width: 100%;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .word {
+                font-size: 3.5rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .word {
+                font-size: 3rem;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .button-text {
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flyer">
+            <div id="p5-container"></div>
+            <div class="content">
+                <div class="header-section">
+                    <div class="title-group">
+                        <h1 class="word">ZERO TO APP</h1>
+                        <div class="subtitle-container">
+                            <h1 class="title">BUILD YOUR IDEAS WITH AI</h1>
+                            <h2 class="subtitle">NO CODING REQUIRED!</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="main-text">
+                    <p class="highlight">✨ Hands-on night launching a website and learning to make apps using Cursor & "Vibe Coding".</p>
+                    <p>MacBook Required. Spots limited!</p>
+                </div>
+                
+                <div class="details-container">
+                    <div class="details">
+                        <div class="detail-item">
+                            <span class="label">When:</span> Wed, March 26, 7–10 PM
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Where:</span> KIIN Living, Medellín
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Cost:</span> $100 USD + $30K COP consumable
+                        </div>
+                    </div>
+                    
+                    <div class="special">
+                        <span class="label">Early Bird:</span> $75, special locals pricing available
+                    </div>
+                </div>
+                
+                <div class="cta">
+                    <a href="https://lu.ma/3lurbvry" class="cta-button">
+                        <span class="button-text">RSVP @ lu.ma/3lurbvry</span>
+                    </a>
+                    <p class="cta-text">DM for info and special pricing for locals</p>
+                </div>
+                
+                <div class="footer">
+                    <p>Flyer made with the same AI tools you'll learn</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // P5.js sketch for the background
+        let sketch = function(p) {
+            let flyerWidth, flyerHeight;
+            let blobs = [];
+            const numBlobs = 5;
+            
+            p.setup = function() {
+                // Get the flyer dimensions for the canvas
+                const flyerElement = document.querySelector('.flyer');
+                const flyerRect = flyerElement.getBoundingClientRect();
+                flyerWidth = flyerRect.width;
+                flyerHeight = flyerRect.height;
+                
+                let canvas = p.createCanvas(flyerWidth, flyerHeight);
+                canvas.parent('p5-container');
+                
+                // Create blobs
+                for (let i = 0; i < numBlobs; i++) {
+                    blobs.push(new Blob(
+                        p.random(flyerWidth),
+                        p.random(flyerHeight),
+                        p.random(100, 200),
+                        p.random(0.001, 0.005),
+                        p.random(0.1, 0.3)
+                    ));
+                }
+            };
+            
+            p.draw = function() {
+                p.clear();
+                
+                // Draw blobs
+                for (let i = 0; i < blobs.length; i++) {
+                    blobs[i].update();
+                    blobs[i].display();
+                }
+                
+                // Draw subtle pattern
+                drawPattern();
+            };
+            
+            function drawPattern() {
+                // Draw dots pattern
+                p.noStroke();
+                p.fill(0, 5);
+                
+                let spacing = 20;
+                let dotSize = 2;
+                
+                for (let x = spacing; x < flyerWidth; x += spacing) {
+                    for (let y = spacing; y < flyerHeight; y += spacing) {
+                        p.ellipse(x, y, dotSize);
+                    }
+                }
+            }
+            
+            p.windowResized = function() {
+                // Update canvas size when window is resized
+                const flyerElement = document.querySelector('.flyer');
+                const flyerRect = flyerElement.getBoundingClientRect();
+                flyerWidth = flyerRect.width;
+                flyerHeight = flyerRect.height;
+                
+                p.resizeCanvas(flyerWidth, flyerHeight);
+                
+                // Reset blobs
+                blobs = [];
+                for (let i = 0; i < numBlobs; i++) {
+                    blobs.push(new Blob(
+                        p.random(flyerWidth),
+                        p.random(flyerHeight),
+                        p.random(100, 200),
+                        p.random(0.001, 0.005),
+                        p.random(0.1, 0.3)
+                    ));
+                }
+            };
+            
+            // Blob class for organic shapes
+            class Blob {
+                constructor(x, y, size, noiseScale, speed) {
+                    this.pos = p.createVector(x, y);
+                    this.size = size;
+                    this.noiseScale = noiseScale;
+                    this.speed = speed;
+                    this.t = p.random(100);
+                    
+                    // Randomly choose between accent and highlight colors
+                    if (p.random() > 0.5) {
+                        this.color = p.color(255, 107, 107, 10); // Accent color with low opacity
+                    } else {
+                        this.color = p.color(78, 205, 196, 10); // Highlight color with low opacity
+                    }
+                }
+                
+                update() {
+                    // Move blob position with noise
+                    this.pos.x += p.map(p.noise(this.t), 0, 1, -this.speed, this.speed) * flyerWidth;
+                    this.pos.y += p.map(p.noise(this.t + 10), 0, 1, -this.speed, this.speed) * flyerHeight;
+                    
+                    // Keep within bounds
+                    this.pos.x = p.constrain(this.pos.x, -this.size/2, flyerWidth + this.size/2);
+                    this.pos.y = p.constrain(this.pos.y, -this.size/2, flyerHeight + this.size/2);
+                    
+                    this.t += 0.01;
+                }
+                
+                display() {
+                    p.noStroke();
+                    p.fill(this.color);
+                    
+                    p.beginShape();
+                    for (let a = 0; a < p.TWO_PI; a += 0.1) {
+                        let xoff = p.map(p.cos(a), -1, 1, 0, 2);
+                        let yoff = p.map(p.sin(a), -1, 1, 0, 2);
+                        let r = p.map(p.noise(xoff, yoff, this.t), 0, 1, this.size * 0.5, this.size);
+                        let x = this.pos.x + r * p.cos(a);
+                        let y = this.pos.y + r * p.sin(a);
+                        p.vertex(x, y);
+                    }
+                    p.endShape(p.CLOSE);
+                }
+            }
+        };
+
+        // Initialize P5.js sketch
+        new p5(sketch);
+    </script>
+</body>
+</html> 
