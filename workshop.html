@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn to build apps using Cursor & Vibe Coding in just 3 hours! No coding experience required. Join us at KIIN Living, Medellín for an immersive workshop.">
+    <meta name="keywords" content="vibe coding, AI coding, app development, Medellín, coding workshop, no-code, low-code, Cursor">
+    <meta name="author" content="Vibe Coding">
+    <meta property="og:title" content="Vibe Coding Workshop - Build Your Ideas with AI">
+    <meta property="og:description" content="Learn to make apps using Cursor & Vibe Coding in 3 hours! No coding experience required.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vibe Coding Workshop">
+    <meta name="twitter:description" content="Learn to make apps using Cursor & Vibe Coding in 3 hours! No coding experience required.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vibecoding.com/workshop">
+    <title>Vibe Coding Workshop - Build Your Ideas with AI</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="workshop.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" as="script">
+    <link rel="preload" href="script.min.js" as="script">
+    
+    <!-- Load fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        .loading {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        .loaded {
+            opacity: 1;
+        }
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease-out;
+        }
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+    
+    <!-- Load stylesheets -->
+    <link rel="stylesheet" href="workshop.css">
+    
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" defer></script>
+    <script src="script.min.js" defer></script>
+</head>
+<body class="loading">
+    <div id="loading-screen">Loading...</div>
+    <div id="background-canvas"></div>
+    <div class="container">
+        <div class="flyer">
+            <div id="p5-container"></div>
+            <div class="workshop-content">
+                <header class="header-section">
+                    <div class="title-group">
+                        <h1 class="word">VIBE CODING</h1>
+                        <h2 class="title">BUILD YOUR IDEAS WITH AI</h2>
+                        <h3 class="subtitle">NO CODING EXPERIENCE REQUIRED!</h3>
+                    </div>
+                </header>
+
+                <div class="main-text">
+                    <p class="highlight">Join us for an immersive workshop where you'll learn to build applications using AI-powered development tools.</p>
+                    <p>Discover how to leverage artificial intelligence to transform your ideas into reality, even with no prior coding experience.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="details-container">
+                    <div class="detail-item">
+                        <strong>📅 Date:</strong> &nbsp; April 6th, 2024
+                    </div>
+                    <div class="detail-item">
+                        <strong>🕒 Time:</strong> &nbsp; 2:00 PM - 5:00 PM
+                    </div>
+                    <div class="detail-item">
+                        <strong>📍 Location:</strong> &nbsp; Medellín, Colombia
+                    </div>
+                    <div class="detail-item">
+                        <strong>💻 Requirements:</strong> &nbsp; Laptop & curiosity
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="cta">
+                    <a href="#" class="cta-button">
+                        <span class="button-text">RESERVE YOUR SPOT</span>
+                    </a>
+                    <p class="cta-text">Limited spots available. Early bird pricing until March 30th.</p>
+                </div>
+
+                <footer class="footer">
+                    <p>* All participants will receive workshop materials and continued support after the event.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('load', () => {
+                document.body.classList.add('loaded');
+                document.getElementById('loading-screen').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html> 
