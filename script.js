@@ -1,5 +1,5 @@
 // Background particles sketch
-const backgroundSketch = p => {
+const bodySketch = p => {
     const particles = [];
     const numParticles = 40;
     
@@ -8,7 +8,7 @@ const backgroundSketch = p => {
         canvas.parent('background-canvas');
         p.frameRate(30); // Optimize performance
         
-        // Initialize particles once
+        // Initialize particles
         for (let i = 0; i < numParticles; i++) {
             particles.push({
                 x: p.random(p.width),
@@ -51,19 +51,18 @@ const backgroundSketch = p => {
         });
     };
     
-    // Debounced resize handler
-    let resizeTimeout;
     p.windowResized = () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            p.resizeCanvas(p.windowWidth, p.windowHeight);
-        }, 250);
+        p.resizeCanvas(p.windowWidth, p.windowHeight);
     };
 };
 
-// Flyer sketch
+// Flyer background sketch
 const flyerSketch = p => {
     let flyerWidth, flyerHeight;
+    let noiseScale = 0.02;
+    let noiseOffset = 0;
+    let texturePoints = [];
+    const numPoints = 300;
     
     p.setup = () => {
         const flyerElement = document.querySelector('.flyer');
@@ -73,53 +72,106 @@ const flyerSketch = p => {
         
         const canvas = p.createCanvas(flyerWidth, flyerHeight);
         canvas.parent('p5-container');
-        p.frameRate(30); // Optimize performance
+        p.frameRate(30);
+        
+        // Generate texture points
+        for (let i = 0; i < numPoints; i++) {
+            texturePoints.push({
+                x: p.random(flyerWidth),
+                y: p.random(flyerHeight),
+                size: p.random(1, 3),
+                opacity: p.random(5, 20)
+            });
+        }
     };
     
     p.draw = () => {
         p.clear();
         drawBackgroundPattern();
+        drawTexture();
+        noiseOffset += 0.005;
     };
     
     const drawBackgroundPattern = () => {
-        // Grid pattern
+        // Draw diagonal lines pattern
         p.stroke(0, 15);
-        p.strokeWeight(0.5);
-        
-        const spacing = 20;
-        for (let y = 0; y < flyerHeight; y += spacing) {
-            p.line(0, y, flyerWidth, y);
-        }
-        for (let x = 0; x < flyerWidth; x += spacing) {
-            p.line(x, 0, x, flyerHeight);
-        }
-        
-        // Globe decoration
-        const globeSize = flyerWidth * 0.15;
-        const globeX = flyerWidth * 0.15;
-        const globeY = flyerHeight * 0.15;
-        
-        p.noFill();
-        p.stroke(0, 20);
         p.strokeWeight(1);
         
-        for (let i = 0; i < 3; i++) {
-            p.ellipse(globeX, globeY, globeSize * (0.6 + i * 0.2), globeSize * (0.4 + i * 0.2));
+        // Diagonal lines
+        const spacing = 20;
+        for (let i = -flyerHeight; i < flyerWidth + flyerHeight; i += spacing) {
+            p.line(i, 0, i + flyerHeight, flyerHeight);
         }
         
-        p.line(globeX, globeY - globeSize/2, globeX, globeY + globeSize/2);
-        p.line(globeX - globeSize/2, globeY, globeX + globeSize/2, globeY);
-        
-        // Arrow decoration
-        const arrowX = flyerWidth * 0.85;
-        const arrowY = flyerHeight * 0.85;
-        const arrowSize = flyerWidth * 0.1;
-        
-        p.stroke(0, 30);
+        // Draw decorative elements
+        p.noFill();
+        p.stroke(255, 56, 96, 30);
         p.strokeWeight(2);
-        p.line(arrowX - arrowSize, arrowY, arrowX, arrowY);
-        p.line(arrowX, arrowY - arrowSize, arrowX, arrowY);
-        p.line(arrowX - arrowSize * 0.7, arrowY - arrowSize * 0.7, arrowX, arrowY);
+        
+        // Corner circles
+        const circleSize = flyerWidth * 0.3;
+        p.ellipse(0, 0, circleSize);
+        p.ellipse(flyerWidth, 0, circleSize);
+        p.ellipse(0, flyerHeight, circleSize);
+        p.ellipse(flyerWidth, flyerHeight, circleSize);
+        
+        // X pattern
+        p.stroke(0, 20);
+        p.strokeWeight(1);
+        p.line(0, 0, flyerWidth, flyerHeight);
+        p.line(flyerWidth, 0, 0, flyerHeight);
+        
+        // Noise pattern
+        p.noStroke();
+        p.fill(0, 5);
+        for (let x = 0; x < flyerWidth; x += 10) {
+            for (let y = 0; y < flyerHeight; y += 10) {
+                const noiseVal = p.noise(x * noiseScale, y * noiseScale, p.frameCount * 0.01);
+                if (noiseVal > 0.6) {
+                    p.rect(x, y, 10, 10);
+                }
+            }
+        }
+    };
+    
+    const drawTexture = () => {
+        // Grain texture
+        texturePoints.forEach(point => {
+            const noiseVal = p.noise(point.x * 0.01, point.y * 0.01, noiseOffset);
+            const opacity = p.map(noiseVal, 0, 1, 0, point.opacity);
+            p.noStroke();
+            p.fill(0, opacity);
+            p.ellipse(point.x, point.y, point.size);
+        });
+        
+        // Subtle noise overlay
+        p.blendMode(p.OVERLAY);
+        for (let x = 0; x < flyerWidth; x += 20) {
+            for (let y = 0; y < flyerHeight; y += 20) {
+                const noiseVal = p.noise(x * 0.005, y * 0.005, noiseOffset * 0.5);
+                const size = p.map(noiseVal, 0, 1, 15, 25);
+                p.noStroke();
+                if (noiseVal > 0.5) {
+                    p.fill(255, 5);
+                    p.ellipse(x, y, size);
+                } else {
+                    p.fill(0, 3);
+                    p.ellipse(x, y, size);
+                }
+            }
+        }
+        p.blendMode(p.BLEND);
+        
+        // Add vignette
+        const gradient = p.drawingContext.createRadialGradient(
+            flyerWidth/2, flyerHeight/2, flyerWidth * 0.3,
+            flyerWidth/2, flyerHeight/2, flyerWidth * 0.8
+        );
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0.15)');
+        p.drawingContext.fillStyle = gradient;
+        p.noStroke();
+        p.rect(0, 0, flyerWidth, flyerHeight);
     };
     
     // Debounced resize handler
@@ -136,11 +188,11 @@ const flyerSketch = p => {
     };
 };
 
-// Initialize sketches
-new p5(backgroundSketch);
+// Initialize both sketches
+new p5(bodySketch);
 new p5(flyerSketch);
 
-// DOM content loaded handler
+// Add hover effect to CTA button
 document.addEventListener('DOMContentLoaded', () => {
     const ctaButton = document.querySelector('.cta-button');
     if (ctaButton) {
