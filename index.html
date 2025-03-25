@@ -15,14 +15,52 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://vibecoding.com/workshop">
     <title>Vibe Coding Workshop - Build Your Ideas with AI</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" as="script">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Load fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        .loading {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        .loaded {
+            opacity: 1;
+        }
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease-out;
+        }
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+    
+    <!-- Load stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Load scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="script.min.js" defer></script>
 </head>
-<body>
+<body class="loading">
+    <div id="loading-screen">Loading...</div>
     <div id="background-canvas"></div>
     <div class="container">
         <div class="flyer">
@@ -81,5 +119,16 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        // Inline critical initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            // Remove loading screen once everything is ready
+            window.addEventListener('load', () => {
+                document.body.classList.add('loaded');
+                document.getElementById('loading-screen').classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html> 
