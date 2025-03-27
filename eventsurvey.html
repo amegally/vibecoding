@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Event Survey - Vibe Coding Workshop Feedback">
+    <meta name="keywords" content="vibe coding, AI coding, app development, Medellín, coding workshop, no-code, low-code, Cursor">
+    <meta name="author" content="Vibe Coding">
+    <meta property="og:title" content="Vibe Coding - Event Survey">
+    <meta property="og:description" content="Share your feedback about the Vibe Coding workshop">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vibe Coding">
+    <meta name="twitter:description" content="Share your feedback about the Vibe Coding workshop">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vibecoding.com/survey">
+    <title>Event Survey - Vibe Coding</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" as="script">
+    <link rel="preload" href="script.min.js" as="script">
+    
+    <!-- Load fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Survey-specific styles -->
+    <style>
+        .page-wrapper {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--container-bg);
+            border-radius: 16px;
+            box-shadow: var(--container-shadow);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            padding: 3rem 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/mountain-bg.png');
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        #p5-container {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .word {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            letter-spacing: -1px;
+            line-height: 0.9;
+            color: #000;
+            text-shadow: 2px 2px 0 var(--highlight-color);
+            margin: 0 0 0.5rem;
+        }
+
+        .title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            line-height: 1;
+            margin: 0.5rem 0;
+            color: #000;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-weight: 700;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+            background-color: #000;
+            padding: 4px 8px;
+            display: inline-block;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .main-content {
+            padding: 2rem;
+            background: white;
+        }
+
+        .section {
+            margin: 0 auto;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .survey-form {
+            width: 100%;
+            height: 1166px;
+            border: none;
+            display: block;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 0.5rem;
+            }
+            
+            .page-container {
+                border-radius: 8px;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .main-content {
+                padding: 1rem;
+            }
+
+            .survey-form {
+                height: calc(100vh - 180px);
+                min-height: 600px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-wrapper {
+                padding: 0;
+            }
+            
+            .page-container {
+                border-radius: 0;
+            }
+            
+            .hero {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <div id="background-canvas"></div>
+    
+    <div class="page-wrapper">
+        <div class="page-container">
+            <section class="hero">
+                <div id="p5-container"></div>
+                <div class="hero-content">
+                    <h1 class="word">EVENT SURVEY</h1>
+                    <h2 class="title">SHARE YOUR FEEDBACK</h2>
+                    <h3 class="subtitle">HELP US IMPROVE</h3>
+                </div>
+            </section>
+
+            <div class="main-content">
+                <section class="section">
+                    <iframe class="survey-form" src="https://docs.google.com/forms/d/e/1FAIpQLSeOKCjzoF4ia154TGMt0xQH_84TzdEUWFcLAorlB4m8kFNFjw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="script.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('load', () => {
+                document.body.classList.add('loaded');
+                document.getElementById('loading-screen').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html> 
