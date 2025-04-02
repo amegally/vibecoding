@@ -13,7 +13,7 @@
     <meta name="twitter:title" content="Build Your Own App in 20 Minutes — Using AI">
     <meta name="twitter:description" content="Build real, working apps using AI — even if you've never written a line of code. Join the waitlist for exclusive bonuses.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://vibecoding.com">
+    <link rel="canonical" href="https://unlockvibecoding.com">
     <title>Build Your Own App in 20 Minutes — Using AI | Vibe Coding</title>
     
     <!-- MailerLite Universal -->
@@ -378,6 +378,33 @@
                 font-size: clamp(1rem, 2vw, 1.1rem);
             }
         }
+
+        /* New styles for instructor section */
+        .instructor-section {
+            background: rgba(245, 245, 245, 0.5);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .instructor-grid {
+            display: flex;
+            align-items: center;
+        }
+
+        .instructor-text {
+            flex: 1;
+        }
+
+        .instructor-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .instructor-photo {
+            max-width: 100%;
+            border-radius: 8px;
+        }
     </style>
     
     <link rel="stylesheet" href="styles.css">
@@ -446,20 +473,26 @@
                             <li>How to debug and get unstuck when things break</li>
                             <li>How to collaborate with AI step-by-step — even if you're starting from scratch</li>
                         </ul>
-                        <p><strong>Most students build something real in under an hour.</strong></p>
+                        <p><strong>Students launch their first webiste in under an hour.</strong></p>
                     </div>
                 </section>
 
-                <section class="section">
+                <section class="section instructor-section">
                     <h2 class="section-title">Learn From Someone Who's Done It</h2>
-                    <div class="section-content">
-                       <p>I spent years working at Harvard as a creative technologist, helping people turn rough ideas into real, interactive prototypes.</p>
-
-                        <p>To prove how powerful these AI tools are, I built <a href="https://mixcard.me" target="_blank" rel="noopener noreferrer">Mixcard.me</a> in just a few days — without writing a single line of code.</p>
-                        
-                        <p>And in a recent live workshop, 10 students with zero coding experience launched working websites in under 20 minutes.</p>
-                        
-                        <p><strong>If they can do it, so can you.</strong></p>
+                    <div class="section-content instructor-grid">
+                        <div class="instructor-image">
+                            <img src="images/alfred-speaker.jpg" alt="Alfred speaking at a tech event" class="instructor-photo">
+                        </div>
+                        <div class="instructor-text">
+                            <h3>Hi, I'm Alfred.</h3>
+                            <p>I'm a creative technologist who loves teaching and exploring emerging technologies. I've worked at Harvard helping the university adopt cutting-edge tools, and even taught game design at MIT back in the Flash era.</p>
+                            
+                            <p>These days, I'm focused on helping people build powerful web apps using AI — without writing a single line of code. When I first discovered what was possible, I was skeptical. But then I built Mixcard.me using nothing but AI tools and APIs — no traditional coding required. It blew my mind, and I realized this power should be available to everyone.</p>
+                            
+                            <p>I've taught this course live, and students were able to launch their first AI-powered websites in under 20 minutes — no coding background needed.</p>
+                            
+                           
+                        </div>
                     </div>
                 </section>
 
