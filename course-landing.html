@@ -187,21 +187,13 @@
 
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
         }
 
         .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--highlight-color);
+            display: none;
         }
 
         .section-content {
@@ -306,20 +298,56 @@
             opacity: 0.3;
         }
 
-        /* Add new styles for FAQ section */
+        /* Add new styles for FAQ accordion */
         .faq-section .faq-item {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .faq-section .faq-item h3 {
+        .faq-section .faq-question {
             font-family: 'Space Mono', monospace;
             font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
+            font-weight: 700;
+            margin: 0;
+            padding: 1rem;
+            background: rgba(245, 245, 245, 0.5);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
         }
 
-        .faq-section .faq-item p {
-            margin: 0;
+        .faq-section .faq-question:hover {
+            background: rgba(245, 245, 245, 0.8);
+        }
+
+        .faq-section .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-section .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-section .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1rem;
+        }
+
+        .faq-section .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1rem;
+            transition: max-height 0.5s ease-in, padding 0.3s ease;
         }
 
         /* Style lists in CTA section */
@@ -405,6 +433,180 @@
             max-width: 100%;
             border-radius: 8px;
         }
+
+        /* Update testimonials section styles */
+        .testimonials-section {
+            padding: 4rem 2rem;
+            background: #fff;
+            border-radius: 16px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            min-width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            height: auto;
+            position: relative;
+            box-shadow: none;
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .author-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .author-name {
+            font-weight: 700;
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .author-title {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .testimonial-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            opacity: 0.2;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            opacity: 1;
+        }
+
+        .testimonial-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .testimonial-arrow:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .testimonial-arrow.prev {
+            left: 1rem;
+        }
+
+        .testimonial-arrow.next {
+            right: 1rem;
+        }
+
+        .testimonial-arrow::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid var(--primary-color);
+            border-right: 2px solid var(--primary-color);
+            display: block;
+        }
+
+        .testimonial-arrow.prev::before {
+            transform: rotate(-135deg);
+        }
+
+        .testimonial-arrow.next::before {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 2rem 1rem;
+            }
+            
+            .testimonial-arrow {
+                width: 36px;
+                height: 36px;
+            }
+
+            .testimonial-arrow.prev {
+                left: 0.5rem;
+            }
+
+            .testimonial-arrow.next {
+                right: 0.5rem;
+            }
+
+            .author-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .testimonial-content {
+                font-size: 1rem;
+            }
+        }
     </style>
     
     <link rel="stylesheet" href="styles.css">
@@ -460,6 +662,33 @@
                         <p><strong>This course gives you a better way.</strong></p>
                     </div>
                 </section>
+
+                <section class="section">
+                    <h2 class="section-title">Tried Other AI Builders and Got Stuck?</h2>
+                    <div class="section-content">
+                      <p>You're not alone. A lot of AI site builders promise the world — just write a single prompt and voilà: your whole app appears like magic. But here's the catch:</p>
+                      <ul class="problem-list">
+                        <li>You can't access or edit the code</li>
+                        <li>When something breaks, you're stuck in a loop with no way to fix it</li>
+                        <li>You get something flashy, but not something launch-ready</li>
+                      </ul>
+                  
+                      <p>What we'll show you in this course gives you real control — without requiring years of coding knowledge.</p>
+                  
+                      <p>You'll invest just a couple hours to learn how to go one level deeper with AI. With that, you'll be able to:</p>
+                      <ul>
+                        <li>Fix bugs instead of giving up</li>
+                        <li>Launch an actual, working product</li>
+                        <li>Make something specific — not just generic templates</li>
+                      </ul>
+                  
+                      <p>Already started something with a hosted AI builder? Great. You can download your code and apply what you learn here to take it further.</p>
+                  
+                      <p><strong>This is the difference between playing with a prototype… and shipping a real product.</strong></p>
+                    </div>
+                  </section>
+
+                
 
                 <section class="section">
                     <h2 class="section-title">Build Custom Apps and Automations Without Developers</h2>
@@ -539,24 +768,103 @@
                     </div>
                 </section>
 
+                <section class="section testimonials-section">
+                    <h2 class="section-title">What Our Students Say</h2>
+                    <div class="testimonial-arrow prev" aria-label="Previous testimonial"></div>
+                    <div class="testimonial-arrow next" aria-label="Next testimonial"></div>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "The vibe coding workshop hosted by Alfred gave me the chance to grow, connect, and have a great time doing it. I appreciated how much I learned, but even more, the community and conversations made it special. Learning vibe coding has unlocked a lot of new opportunities I had previously not thought possible. It was the perfect mix of learning and fun."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="images/ray.jpg" alt="Raymond Delacruz">
+                                </div>
+                                <div class="author-info">
+                                    <p class="author-name">Raymond Delacruz</p>
+                                    <p class="author-title">Product Manager</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "Excellent hands on and practical class. We built our first app in under an hour with zero coding. Highly recommend it."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="images/mike.jpg" alt="Mike Vranjkovic">
+                                </div>
+                                <div class="author-info">
+                                    <p class="author-name">Mike Vranjkovic</p>
+                                    <p class="author-title">Managing Partner/Cofounder, Webstreet</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "I launched an amazing countdown birthday website for my boyfriend in just 30 minutes—without ever having coded before, just by prompting Cursor! 🤯 Now, I'm excited to start building my own apps that integrate with Notion. 🚀"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="images/sara.jpg" alt="Sara Castellanos">
+                                </div>
+                                <div class="author-info">
+                                    <p class="author-name">Sara Castellanos</p>
+                                    <p class="author-title">Founder, PRONOIA DETAILS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-navigation">
+                        <div class="testimonial-dot active" data-index="0"></div>
+                        <div class="testimonial-dot" data-index="1"></div>
+                        <div class="testimonial-dot" data-index="2"></div>
+                    </div>
+                </section>
+
+                <section class="section hero-callout">
+                    <p>
+                      <strong>Built with the Same Tools You’ll Learn.</strong><br>
+                      This entire page was created using AI — no hosting fees, no drag-and-drop templates, and no hand-coding from scratch.<br><br>
+                      Everything you see here was generated and customized through AI prompting, just like you’ll learn to do in the course.
+                    </p>
+                  </section>
+
                 <section class="section faq-section">
                     <h2 class="section-title">Got Questions?</h2>
                     <div class="section-content">
                         <div class="faq-item">
-                            <h3><strong>I've never coded. Can I really do this?</strong></h3>
-                            <p>Yes. Most people who go through this have zero coding experience — and are blown away by what they build.</p>
+                            <div class="faq-question">I've never coded. Can I really do this?</div>
+                            <div class="faq-answer">
+                                <p>Yes. Most people who go through this have zero coding experience — and are blown away by what they build.</p>
+                            </div>
                         </div>
                         <div class="faq-item">
-                            <h3><strong>What if I don't have an idea yet?</strong></h3>
-                            <p>We'll help you find one. You likely have something already — a workflow, a process, a tool you wish existed. This course helps surface it and bring it to life.</p>
+                            <div class="faq-question">What if I don't have an idea yet?</div>
+                            <div class="faq-answer">
+                                <p>We'll help you find one. You likely have something already — a workflow, a process, a tool you wish existed. This course helps surface it and bring it to life.</p>
+                            </div>
                         </div>
                         <div class="faq-item">
-                            <h3><strong>How is this different from no-code platforms?</strong></h3>
-                            <p>This isn't drag-and-drop. It's smarter. You'll learn how to actually collaborate with AI to build flexible, custom solutions that adapt to what you need.</p>
+                            <div class="faq-question">How is this different from no-code platforms?</div>
+                            <div class="faq-answer">
+                                <p>This isn't drag-and-drop. It's smarter. You'll learn how to actually collaborate with AI to build flexible, custom solutions that adapt to what you need.</p>
+                            </div>
                         </div>
                         <div class="faq-item">
-                            <h3><strong>Is this a coding bootcamp?</strong></h3>
-                            <p>Nope. This skips the traditional code-learning curve and shows you how to work with AI like a creative partner — not like a student learning syntax.</p>
+                            <div class="faq-question">Is this a coding bootcamp?</div>
+                            <div class="faq-answer">
+                                <p>Nope. This skips the traditional code-learning curve and shows you how to work with AI like a creative partner — not like a student learning syntax.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">I tried other AI builders and got stuck — how is this different?</div>
+                            <div class="faq-answer">
+                                <p>Most hosted tools give you a quick demo — but not real control. This course teaches you how to actually build and fix things with AI, using real tools and editable code. You'll stop hitting walls and start making real progress.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -581,9 +889,92 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Loading screen handler
             window.addEventListener('load', () => {
                 document.body.classList.add('loaded');
                 document.getElementById('loading-screen').classList.add('hidden');
+            });
+
+            // Testimonials carousel functionality
+            const testimonialsGrid = document.querySelector('.testimonials-grid');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            const prevButton = document.querySelector('.testimonial-arrow.prev');
+            const nextButton = document.querySelector('.testimonial-arrow.next');
+            let currentSlide = 0;
+            let autoplayInterval;
+
+            const updateSlidePosition = () => {
+                testimonialsGrid.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            };
+
+            const nextSlide = () => {
+                currentSlide = (currentSlide + 1) % dots.length;
+                updateSlidePosition();
+            };
+
+            const prevSlide = () => {
+                currentSlide = (currentSlide - 1 + dots.length) % dots.length;
+                updateSlidePosition();
+            };
+
+            const startAutoplay = () => {
+                stopAutoplay();
+                autoplayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            };
+
+            const stopAutoplay = () => {
+                if (autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                }
+            };
+
+            // Event listeners
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlidePosition();
+                    startAutoplay();
+                });
+            });
+
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                startAutoplay();
+            });
+
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                startAutoplay();
+            });
+
+            testimonialsGrid.addEventListener('mouseenter', stopAutoplay);
+            testimonialsGrid.addEventListener('mouseleave', startAutoplay);
+
+            // Start autoplay
+            startAutoplay();
+
+            // FAQ Accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
             });
         });
     </script>
