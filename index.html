@@ -16,30 +16,6 @@
     <link rel="canonical" href="https://unlockvibecoding.com">
     <title>Build Your Own App in 20 Minutes — Using AI | Vibe Coding</title>
     
-    <!-- Critical inline CSS -->
-    <style>
-        :root{--primary-color:#000;--secondary-color:#f5e642;--highlight-color:#ff3860;--text-color:#2c2c2c}
-        body{font-family:'Space Mono',monospace;margin:0;background:#f5f5f5;color:var(--text-color);line-height:1.6}
-        .loading{opacity:0}
-        .loaded{opacity:1}
-        #loading-screen{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--secondary-color);display:flex;justify-content:center;align-items:center;z-index:9999}
-        #loading-screen.hidden{display:none}
-        .page-wrapper{min-height:100vh;padding:1rem;display:flex;flex-direction:column}
-        .page-container{max-width:1000px;margin:0 auto;width:100%;background:rgba(255,255,255,.95);border-radius:16px;box-shadow:0 12px 24px -8px rgba(0,0,0,.15);overflow:hidden}
-        
-        /* Hero section - Fixed centering */
-        .hero{position:relative;padding:2.5rem 0;background-color:var(--secondary-color);background-image:none;border-radius:16px 16px 0 0;text-align:center !important;}
-        .hero-content{position:relative;width:100%;max-width:800px;margin:0 auto !important;text-align:center !important;padding:0 !important;box-sizing:border-box;}
-        .word{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,3.5rem);letter-spacing:-1px;line-height:0.9;color:#000;margin:0 !important;padding:0 !important;text-shadow:2px 2px 0 var(--highlight-color);text-align:center !important;display:block;width:100%;}
-        .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2rem);line-height:1;margin:0.5rem 0 !important;color:#000;text-align:center !important;display:block;width:100%;}
-        .subtitle{font-size:clamp(.8rem,2vw,.9rem);font-weight:700;color:var(--secondary-color);background-color:#000;padding:4px 12px;display:inline-block;margin:0.5rem auto !important;border-radius:4px;text-align:center !important;}
-        
-        .main-content{padding:2rem}
-        .hero-callout{background:rgba(0,0,0,.85);color:#fff;padding:1.25rem 1rem;border-radius:8px;margin:0.75rem auto;max-width:800px;text-align:center;font-size:clamp(1.1rem,2.2vw,1.3rem);line-height:1.6;border-left:4px solid var(--highlight-color)}
-        .hero-callout strong{color:var(--secondary-color)}
-        @media (max-width:768px){.page-wrapper{padding:.5rem}.hero{padding:1.75rem 0}.main-content{padding:1rem}.hero-callout{margin:1rem auto;padding:1rem;font-size:.95rem;width:calc(100% - 30px)}}
-    </style>
-    
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,19 +35,7 @@
     <!-- Load CSS -->
     <link rel="stylesheet" href="css/min/main.min.css">
     
-    <!-- Defer non-critical scripts -->
-    <script>
-        // Add hero text content directly to the DOM before any other resources load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mark as loaded immediately to make the hero visible asap
-            document.body.classList.add('loaded');
-            if(document.getElementById('loading-screen')) {
-                document.getElementById('loading-screen').classList.add('hidden');
-            }
-        });
-    </script>
-    
-    <!-- MailerLite Universal - add async and defer -->
+    <!-- MailerLite Universal -->
     <script async defer>
         (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
         .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
@@ -85,18 +49,17 @@
     
     <div class="page-wrapper">
         <div class="page-container">
-            <!-- Fixed hero section with inline styles for absolute centering -->
-            <!-- Important: forcing zero margins/padding and centering to fix misalignment -->
-            <section class="hero" id="hero-section" style="text-align:center !important; width:100%; padding:2.5rem 0;">
-                <div class="hero-content" style="text-align:center !important; margin:0 auto !important; width:100%; max-width:800px; padding:0 !important;">
-                    <h1 class="word" id="main-heading" style="text-align:center !important; margin:0 !important; padding:0 !important; width:100%; display:block; box-sizing:border-box; text-indent:0 !important;">Build Your Own App This Weekend</h1>
-                    <h2 class="title" style="text-align:center !important; margin:0.5rem 0 !important; width:100%; display:block; box-sizing:border-box; text-indent:0 !important;">Without Writing Code</h2>
-                    <h3 class="subtitle" style="display:inline-block; margin:0.5rem auto !important; text-align:center !important; text-indent:0 !important;">No devs. No overwhelm. Just results.</h3>
+            <!-- Hero section -->
+            <section class="hero" id="hero-section">
+                <div class="hero-content">
+                    <h1 class="word" id="main-heading">Build Your Own App This Weekend</h1>
+                    <h2 class="title">Without Writing Code</h2>
+                    <h3 class="subtitle">No devs. No overwhelm. Just results.</h3>
                 </div>
             </section>
 
-            <div class="main-content" style="content-visibility:auto;">
-                <div class="hero-callout" style="text-align:center !important; margin:0.75rem auto; max-width:800px;">
+            <div class="main-content">
+                <div class="hero-callout">
                     Go from <strong>"I have an idea but don't know where to start"</strong><br>
                     to launching your own interactive tool — fast.
                 </div>
@@ -123,7 +86,10 @@
 
                 <section class="section">
                    
-                    <div class="ml-embedded" data-form="AMm9JJ"></div>
+                    <div class="waitlist-featured" id="waitlist-main">
+                        <div class="waitlist-label">🔥 Join the Waitlist Now! 🔥</div>
+                        <div class="ml-embedded" data-form="AMm9JJ"></div>
+                    </div>
 
                     <h2 class="section-title">Why Most People Stay Stuck</h2>
                     <div class="section-content">
@@ -162,8 +128,6 @@
                     </div>
                   </section>
 
-                
-
                 <section class="section">
                     <h2 class="section-title">Build Custom Apps and Automations Without Developers</h2>
                     <div class="section-content">
@@ -193,8 +157,6 @@
                             <p>These days, I'm focused on helping people build powerful web apps using AI — without writing a single line of code. When I first discovered what was possible, I was skeptical. But then I built Mixcard.me using nothing but AI tools and APIs — no traditional coding required. It blew my mind, and I realized this power should be available to everyone.</p>
                             
                             <p>I've taught this course live, and students were able to launch their first AI-powered websites in under 20 minutes — no coding background needed.</p>
-                            
-                           
                         </div>
                     </div>
                 </section>
@@ -224,7 +186,10 @@
                             <li><strong>Behind-the-scenes look</strong> at how this course is built — and a chance to shape it</li>
                         </ul>
                         <div class="waitlist-cta">
-                            <div class="ml-embedded" data-form="AMm9JJ"></div>
+                            <div class="waitlist-featured" id="waitlist-bonus">
+                                <div class="waitlist-label">✨ Early Access Benefits ✨</div>
+                                <div class="ml-embedded" data-form="AMm9JJ"></div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -354,13 +319,16 @@
                         <li>A head start on building something amazing</li>
                     </ul>
                     <p class="cohort-text">Spots are limited — join now and be part of the first cohort.</p>
-                    <div class="ml-embedded" data-form="AMm9JJ"></div>
+                    <div class="waitlist-featured" id="waitlist-footer">
+                        <div class="waitlist-label">🚀 Secure Your Spot Now 🚀</div>
+                        <div class="ml-embedded" data-form="AMm9JJ"></div>
+                    </div>
                 </section>
             </div>
         </div>
     </div>
 
-    <!-- Load non-critical JavaScript with defer for better performance -->
+    <!-- Load JavaScript with defer for better performance -->
     <script src="js/min/main.min.js" defer></script>
 </body>
 </html> 
