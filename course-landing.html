@@ -53,10 +53,11 @@
             font-family: 'Space Mono', monospace;
             min-height: 100vh;
             margin: 0;
-            background: var(--secondary-color);
+            background: linear-gradient(135deg, #e6e6e6, #f5f5f5);
             color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.6;
+            padding: 0;
         }
 
         .loading {
@@ -92,7 +93,7 @@
 
         .page-container {
             position: relative;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             width: 100%;
             background: var(--container-bg);
@@ -101,6 +102,7 @@
             overflow: hidden;
             backdrop-filter: blur(10px);
             z-index: 2;
+            padding: 0;
         }
 
         .hero {
@@ -177,12 +179,17 @@
         }
 
         .section {
-            margin: 3rem auto;
+            margin: 0.75rem auto;
             max-width: 800px;
+            position: relative;
+        }
+
+        .section + .section {
+            margin-top: 1rem;
         }
 
         .section:first-child {
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
         .section-title {
@@ -232,11 +239,11 @@
 
         .cta-section {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 1.75rem 1.5rem 2rem;
             background: var(--secondary-color);
             position: relative;
             overflow: hidden;
-            margin: 3rem -2rem -2rem;
+            margin: 2rem -2rem -2rem;
         }
 
         .primary-button {
@@ -274,16 +281,47 @@
             }
             
             .main-content {
-                padding: 1.5rem;
+                padding: 1rem;
             }
             
             .section {
-                margin: 2rem auto;
+                margin: 0.5rem auto;
             }
             
             .cta-section {
-                padding: 2rem 1rem;
-                margin: 2rem -1.5rem -1.5rem;
+                padding: 1.25rem 1rem 1.5rem;
+                margin: 1rem -1rem -1rem;
+            }
+            
+            .cta-section .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .cta-section .benefits-list {
+                gap: 0.3rem 0.8rem;
+                margin: 0.4rem auto;
+                max-width: 95%;
+            }
+            
+            .cta-section .benefits-list li {
+                font-size: 0.85rem;
+            }
+            
+            .cta-section .benefits-list li:not(:last-child)::after {
+                margin-left: 0.5rem;
+            }
+            
+            .cta-section p {
+                margin: 0.3rem auto;
+                font-size: 0.85rem;
+                max-width: 95%;
+            }
+            
+            .cta-section .cohort-text {
+                margin-top: 0.8rem;
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -350,28 +388,57 @@
             transition: max-height 0.5s ease-in, padding 0.3s ease;
         }
 
-        /* Style lists in CTA section */
-        .cta-section ul {
-            list-style: none;
+        /* Style lists in CTA section as inline */
+        .cta-section .benefits-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1rem;
+            margin: 0.6rem auto;
+            max-width: 90%;
             padding: 0;
-            margin: 1rem 0;
-            text-align: center;
         }
 
-        .cta-section li {
-            margin: 0.5rem 0;
-            color: var(--primary-color);
+        .cta-section .benefits-list li {
+            display: inline-block;
+            position: relative;
+            padding-right: 0;
+            margin: 0;
+            font-size: 0.9rem;
         }
 
-        /* Enhance section spacing */
-        .section + .section {
-            margin-top: 4rem;
+        /* Remove bullets and add subtle separator */
+        .cta-section .benefits-list li:not(:last-child)::after {
+            content: "•";
+            margin-left: 0.7rem;
+            opacity: 0.5;
+        }
+        
+        /* Make footer text smaller and tighter */
+        .cta-section p {
+            margin: 0.5rem auto;
+            font-size: 0.9rem;
+            max-width: 90%;
+            line-height: 1.4;
+        }
+        
+        .cta-section .section-title {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1;
+        }
+        
+        .cta-section .cohort-text {
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
         }
 
         /* Add dividers between sections */
         .section:not(:last-child) {
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            padding-bottom: 4rem;
+            padding-bottom: 0.75rem;
         }
 
         /* Exception for bonus and CTA sections */
@@ -384,9 +451,9 @@
         .hero-callout {
             background: rgba(0, 0, 0, 0.85);
             color: white;
-            padding: 1.5rem 2rem;
+            padding: 1.25rem 1.5rem;
             border-radius: 8px;
-            margin: 2rem auto;
+            margin: 0.75rem auto 0.5rem;
             max-width: 800px;
             text-align: center;
             font-size: clamp(1.1rem, 2.2vw, 1.3rem);
@@ -401,88 +468,144 @@
 
         @media (max-width: 768px) {
             .hero-callout {
-                margin: 1.5rem 1rem;
-                padding: 1.2rem 1.5rem;
-                font-size: clamp(1rem, 2vw, 1.1rem);
+                margin: 1rem 0.5rem;
+                padding: 1rem;
+                font-size: 0.95rem;
             }
         }
 
-        /* New styles for instructor section */
+        /* New styles for instructor section with text wrap */
         .instructor-section {
             background: rgba(245, 245, 245, 0.5);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Contain floats */
         }
 
         .instructor-grid {
-            display: flex;
-            align-items: center;
-        }
-
-        .instructor-text {
-            flex: 1;
+            display: block; /* Remove flex layout */
         }
 
         .instructor-image {
-            flex: 1;
-            text-align: right;
+            float: left; /* Float image to the left */
+            margin: 0 1.5rem 1rem 0; /* Add space right and bottom */
+            max-width: 220px; /* Control image size */
         }
 
         .instructor-photo {
-            max-width: 100%;
+            width: 100%;
+            height: auto;
             border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .instructor-text {
+            /* No special styling needed - text will naturally wrap */
+        }
+
+        .instructor-text h3 {
+            margin-top: 0; /* Remove space at top to align with image */
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile styles for instructor section */
+            .instructor-image {
+                float: none; /* Remove float on small screens */
+                margin: 0 auto 1rem; /* Center image */
+                display: block;
+                max-width: 180px;
+            }
+            
+            .instructor-text {
+                clear: both; /* Ensure text is below image */
+            }
+            
+            /* Reduce developer pseudo-element size */
+            .developer-section::before {
+                font-size: 10rem;
+            }
         }
 
         /* Update testimonials section styles */
         .testimonials-section {
-            padding: 4rem 2rem;
+            padding: 2rem 1.5rem;
             background: #fff;
             border-radius: 16px;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             position: relative;
             overflow: hidden;
         }
 
         .testimonials-grid {
-            display: flex;
-            transition: transform 0.5s ease;
+            position: relative;
             width: 100%;
+            overflow: hidden;
+            display: block;
         }
 
         .testimonial-card {
             background: #fff;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            min-width: 100%;
-            max-width: 800px;
+            padding: 1.5rem;
+            display: none;
+            width: 100%;
+            max-width: 100%;
             margin: 0 auto;
-            height: auto;
             position: relative;
-            box-shadow: none;
+            box-sizing: border-box;
+        }
+
+        .testimonial-card.active {
+            display: block;
         }
 
         .testimonial-content {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
             color: var(--text-color);
             font-family: 'Space Mono', monospace;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        /* Add back the quote styling */
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -0.5rem;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content::after {
+            content: '"';
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            font-family: serif;
+            line-height: 0;
+            margin-left: 0.25rem;
+            vertical-align: bottom;
+            display: inline-block;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .author-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 4px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%; /* Restore circular mask */
             overflow: hidden;
             flex-shrink: 0;
+            border: 2px solid var(--secondary-color); /* Add yellow border */
         }
 
         .author-image img {
@@ -501,12 +624,12 @@
             font-weight: 700;
             margin: 0;
             color: var(--primary-color);
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-family: 'Space Mono', monospace;
         }
 
         .author-title {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: #666;
             margin: 0;
             font-family: 'Space Mono', monospace;
@@ -517,7 +640,7 @@
             justify-content: center;
             align-items: center;
             gap: 0.75rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .testimonial-dot {
@@ -538,8 +661,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: #fff;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -582,34 +705,170 @@
 
         @media (max-width: 768px) {
             .testimonials-section {
-                padding: 2rem 1rem;
+                padding: 1.5rem 1rem;
             }
             
             .testimonial-arrow {
-                width: 36px;
-                height: 36px;
+                width: 30px;
+                height: 30px;
             }
 
             .testimonial-arrow.prev {
-                left: 0.5rem;
+                left: 0.25rem;
             }
 
             .testimonial-arrow.next {
-                right: 0.5rem;
+                right: 0.25rem;
             }
 
             .author-image {
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
+                border-width: 1.5px; /* Thinner border on mobile */
+            }
+            
+            .testimonial-content {
+                font-size: 0.85rem;
+            }
+            
+            .testimonial-content::before {
+                font-size: 2rem;
+            }
+            
+            .testimonial-content::after {
+                font-size: 2rem;
+            }
+            
+            /* Mobile styles for instructor section */
+            .instructor-image {
+                float: none; /* Remove float on small screens */
+                margin: 0 auto 1rem; /* Center image */
+                display: block;
+                max-width: 180px;
+            }
+            
+            .instructor-text {
+                clear: both; /* Ensure text is below image */
+            }
+        }
+
+        /* Add dynamic styling for the developer section */
+        .developer-section {
+            position: relative;
+            padding: 2rem 0 1.5rem;
+            overflow: hidden;
+        }
+
+        .developer-section::before {
+            content: '{ }';
+            position: absolute;
+            right: -2rem;
+            top: -1rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 8rem;
+            opacity: 0.03;
+            color: var(--secondary-color);
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .developer-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            line-height: 1.1;
+            margin: 0.5rem 0 1.5rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .developer-heading span {
+            display: block;
+        }
+
+        .developer-heading .highlight {
+            color: var(--highlight-color);
+            font-size: inherit;
+            margin-top: 0.2rem;
+        }
+
+        .developer-intro {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .developer-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .developer-list li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .developer-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: var(--highlight-color);
+            border-radius: 50%;
+        }
+
+        .developer-outro {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            line-height: 1.6;
+            margin-top: 2rem;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .developer-section {
+                padding: 3rem 1rem 2rem;
             }
 
-            .testimonial-content {
-                font-size: 1rem;
+            .developer-section::before {
+                font-size: 12rem;
+                opacity: 0.02;
             }
+
+            .developer-heading {
+                margin-bottom: 1.5rem;
+            }
+
+            .developer-list {
+                margin: 1.5rem 0;
+            }
+
+            .developer-list li {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        /* General image responsiveness */
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
     
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     
     <!-- Load scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" defer></script>
@@ -632,25 +891,34 @@
             </section>
 
             <div class="main-content">
-                <section class="section">
-                    <div class="hero-callout">
-                        Go from <strong>"I have an idea but don't know where to start"</strong><br>to launching your own interactive tool — fast.
-                    </div>
-                    <div class="ml-embedded" data-form="AMm9JJ"></div>
-
-                    <h2 class="section-title">Stop Waiting for Developers. Start Building with AI.</h2>
-                    <div class="section-content">
-                        <p>If you've ever had an idea for an app or website but felt stuck because you're not technical — this is for you.</p>
-                        <ul>
-                            <li>You don't need a computer science degree.</li>
-                            <li>You don't need to hire a developer.</li>
-                            <li>And you definitely don't need to give up on your ideas.</li>
-                        </ul>
-                        <p>This course shows you how to bring your vision to life using powerful new AI tools — even if you've never coded before.</p>
-                    </div>
+                <div class="hero-callout">
+                    Go from <strong>"I have an idea but don't know where to start"</strong><br>to launching your own interactive tool — fast.
+                </div>
+                <section class="section developer-section">
+                    <h2 class="developer-heading">
+                        <span>STOP WAITING FOR DEVELOPERS.</span>
+                        <span class="highlight">START BUILDING WITH AI.</span>
+                    </h2>
+                    
+                    <p class="developer-intro">
+                        If you've ever had an idea for an app or website but felt stuck because you're not technical — this is for you.
+                    </p>
+                    
+                    <ul class="developer-list">
+                        <li>You don't need a computer science degree.</li>
+                        <li>You don't need to hire a developer.</li>
+                        <li>And you definitely don't need to give up on your ideas.</li>
+                    </ul>
+                    
+                    <p class="developer-outro">
+                        This course shows you how to bring your vision to life using powerful new AI tools — even if you've never coded before.
+                    </p>
                 </section>
 
                 <section class="section">
+                   
+                    <div class="ml-embedded" data-form="AMm9JJ"></div>
+
                     <h2 class="section-title">Why Most People Stay Stuck</h2>
                     <div class="section-content">
                         <ul class="problem-list">
@@ -773,7 +1041,7 @@
                     <div class="testimonial-arrow prev" aria-label="Previous testimonial"></div>
                     <div class="testimonial-arrow next" aria-label="Next testimonial"></div>
                     <div class="testimonials-grid">
-                        <div class="testimonial-card">
+                        <div class="testimonial-card active">
                             <div class="testimonial-content">
                                 "The vibe coding workshop hosted by Alfred gave me the chance to grow, connect, and have a great time doing it. I appreciated how much I learned, but even more, the community and conversations made it special. Learning vibe coding has unlocked a lot of new opportunities I had previously not thought possible. It was the perfect mix of learning and fun."
                             </div>
@@ -827,9 +1095,9 @@
 
                 <section class="section hero-callout">
                     <p>
-                      <strong>Built with the Same Tools You’ll Learn.</strong><br>
+                      <strong>Built with the Same Tools You'll Learn.</strong><br>
                       This entire page was created using AI — no hosting fees, no drag-and-drop templates, and no hand-coding from scratch.<br><br>
-                      Everything you see here was generated and customized through AI prompting, just like you’ll learn to do in the course.
+                      Everything you see here was generated and customized through AI prompting, just like you'll learn to do in the course.
                     </p>
                   </section>
 
@@ -873,14 +1141,13 @@
                     <div id="p5-container-footer"></div>
                     <h2 class="section-title">The Course Launches Soon — Be the First In</h2>
                     <p>If you're on the waitlist, you'll get:</p>
-                    <ul>
+                    <ul class="benefits-list">
                         <li>First access before public launch</li>
                         <li>Custom support and extra content</li>
                         <li>A chance to shape the course</li>
                         <li>A head start on building something amazing</li>
                     </ul>
-                    <p><strong>Spots are limited — join now and be part of the first cohort.</strong></p>
-                    <br>
+                    <p class="cohort-text">Spots are limited — join now and be part of the first cohort.</p>
                     <div class="ml-embedded" data-form="AMm9JJ"></div>
                 </section>
             </div>
@@ -895,8 +1162,8 @@
                 document.getElementById('loading-screen').classList.add('hidden');
             });
 
-            // Testimonials carousel functionality
-            const testimonialsGrid = document.querySelector('.testimonials-grid');
+            // Testimonials carousel functionality - fixed to use display:block/none
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
             const dots = document.querySelectorAll('.testimonial-dot');
             const prevButton = document.querySelector('.testimonial-arrow.prev');
             const nextButton = document.querySelector('.testimonial-arrow.next');
@@ -904,19 +1171,27 @@
             let autoplayInterval;
 
             const updateSlidePosition = () => {
-                testimonialsGrid.style.transform = `translateX(-${currentSlide * 100}%)`;
+                // Hide all cards
+                testimonialCards.forEach(card => {
+                    card.classList.remove('active');
+                });
+                
+                // Show current card
+                testimonialCards[currentSlide].classList.add('active');
+                
+                // Update dots
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentSlide);
                 });
             };
 
             const nextSlide = () => {
-                currentSlide = (currentSlide + 1) % dots.length;
+                currentSlide = (currentSlide + 1) % testimonialCards.length;
                 updateSlidePosition();
             };
 
             const prevSlide = () => {
-                currentSlide = (currentSlide - 1 + dots.length) % dots.length;
+                currentSlide = (currentSlide - 1 + testimonialCards.length) % testimonialCards.length;
                 updateSlidePosition();
             };
 
@@ -950,9 +1225,9 @@
                 startAutoplay();
             });
 
-            testimonialsGrid.addEventListener('mouseenter', stopAutoplay);
-            testimonialsGrid.addEventListener('mouseleave', startAutoplay);
-
+            // Start with the first slide active
+            updateSlidePosition();
+            
             // Start autoplay
             startAutoplay();
 
