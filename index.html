@@ -3,389 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn to build apps using Cursor & Vibe Coding. Transform your ideas into reality with AI-powered development. No coding experience required.">
-    <meta name="keywords" content="vibe coding, AI coding, app development, Medellín, coding workshop, no-code, low-code, Cursor">
+    <meta name="description" content="Build your own app in 20 minutes using AI, even with no coding experience. Join the waitlist for exclusive launch pricing and bonuses.">
+    <meta name="keywords" content="vibe coding, AI coding, app development, no-code, low-code, build app with AI, AI course">
     <meta name="author" content="Vibe Coding">
-    <meta property="og:title" content="Vibe Coding - Build Your Ideas with AI">
-    <meta property="og:description" content="Transform your ideas into reality with AI-powered development. No coding experience required.">
+    <meta property="og:title" content="Build Your Own App in 20 Minutes — Using AI">
+    <meta property="og:description" content="Build real, working apps using AI — even if you've never written a line of code. Join the waitlist for exclusive bonuses.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vibe Coding">
-    <meta name="twitter:description" content="Transform your ideas into reality with AI-powered development. No coding experience required.">
+    <meta name="twitter:title" content="Build Your Own App in 20 Minutes — Using AI">
+    <meta name="twitter:description" content="Build real, working apps using AI — even if you've never written a line of code. Join the waitlist for exclusive bonuses.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://unlockvibecoding.com">
-    <title>Unlock Vibe Coding - Build Your Ideas with AI</title>
+    <title>Build Your Own App in 20 Minutes — Using AI | Vibe Coding</title>
     
-    <!-- MailerLite Universal -->
+    <!-- Critical inline CSS -->
+    <style>
+        :root{--primary-color:#000;--secondary-color:#f5e642;--highlight-color:#ff3860;--text-color:#2c2c2c}
+        body{font-family:'Space Mono',monospace;margin:0;background:#f5f5f5;color:var(--text-color);line-height:1.6}
+        .loading{opacity:0}
+        .loaded{opacity:1}
+        #loading-screen{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--secondary-color);display:flex;justify-content:center;align-items:center;z-index:9999}
+        .page-wrapper{min-height:100vh;padding:1rem;display:flex;flex-direction:column}
+        .page-container{max-width:1000px;margin:0 auto;width:100%;background:rgba(255,255,255,.95);border-radius:16px;box-shadow:0 12px 24px -8px rgba(0,0,0,.15);overflow:hidden}
+        
+        /* Hero section - Fixed centering */
+        .hero{position:relative;padding:2.5rem 0;background-color:var(--secondary-color);background-image:linear-gradient(rgba(245, 230, 66, 0.85), rgba(245, 230, 66, 0.95)), url('images/mountain-bg.png');background-size:cover;background-position:center;border-radius:16px 16px 0 0;text-align:center !important;}
+        .hero-content{position:relative;width:100%;max-width:800px;margin:0 auto !important;text-align:center !important;padding:0 !important;box-sizing:border-box;}
+        .word{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,3.5rem);letter-spacing:-1px;line-height:0.9;color:#000;margin:0 !important;padding:0 !important;text-shadow:2px 2px 0 var(--highlight-color);text-align:center !important;display:block;width:100%;}
+        .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2rem);line-height:1;margin:0.5rem 0 !important;color:#000;text-align:center !important;display:block;width:100%;}
+        .subtitle{font-size:clamp(.8rem,2vw,.9rem);font-weight:700;color:var(--secondary-color);background-color:#000;padding:4px 12px;display:inline-block;margin:0.5rem auto !important;border-radius:4px;text-align:center !important;}
+        
+        .main-content{padding:2rem}
+        .hero-callout{background:rgba(0,0,0,.85);color:#fff;padding:1.25rem 1rem;border-radius:8px;margin:0.75rem auto;max-width:800px;text-align:center;font-size:clamp(1.1rem,2.2vw,1.3rem);line-height:1.6;border-left:4px solid var(--highlight-color)}
+        .hero-callout strong{color:var(--secondary-color)}
+        @media (max-width:768px){.page-wrapper{padding:.5rem}.hero{padding:1.75rem 0}.main-content{padding:1rem}.hero-callout{margin:1rem auto;padding:1rem;font-size:.95rem;width:calc(100% - 30px)}}
+    </style>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://assets.mailerlite.com">
+    
+    <!-- Load fonts immediately to prevent FOIT -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="css/min/main.min.css" as="style">
+    
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="css/min/main.min.css">
+    
+    <!-- Defer non-critical scripts -->
     <script>
+        // Inlined loader script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark as loaded after short delay to ensure first paint happens quickly
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+                document.getElementById('loading-screen').classList.add('hidden');
+            }, 100);
+        });
+    </script>
+    
+    <!-- MailerLite Universal - add async and defer -->
+    <script async defer>
         (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
         .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
         n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
         (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
         ml('account', '1424447');
     </script>
-    <!-- End MailerLite Universal -->
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" as="style">
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" as="script">
-    <link rel="preload" href="script.min.js" as="script">
-    
-    <!-- Load fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Critical CSS inline -->
-    <style>
-        :root {
-            --primary-color: #000;
-            --secondary-color: #f5e642;
-            --highlight-color: #ff3860;
-            --text-color: #2c2c2c;
-            --background-color: #f5f5f5;
-            --container-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
-            --container-bg: rgba(255, 255, 255, 0.95);
-        }
-
-        body {
-            font-family: 'Space Mono', monospace;
-            min-height: 100vh;
-            margin: 0;
-            background: var(--secondary-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        .loading {
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
-        }
-        .loaded {
-            opacity: 1;
-        }
-        #loading-screen {
-            position: fixed;
-            inset: 0;
-            background: var(--secondary-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.3s ease-out;
-        }
-        #loading-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Content-specific styles */
-        .page-wrapper {
-            min-height: 100vh;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .page-container {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            background: var(--container-bg);
-            border-radius: 16px;
-            box-shadow: var(--container-shadow);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            z-index: 2;
-        }
-
-        .hero {
-            position: relative;
-            width: 100%;
-            padding: 3rem 2rem;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('images/mountain-bg.png');
-            background-size: cover;
-            background-position: top center;
-            background-repeat: no-repeat;
-            opacity: 0.7;
-            z-index: 1;
-        }
-
-        #p5-container {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            opacity: 0.2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .word {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            letter-spacing: -1px;
-            line-height: 0.9;
-            color: #000;
-            text-shadow: 2px 2px 0 var(--highlight-color);
-            margin: 0 0 0.5rem;
-        }
-
-        .title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            line-height: 1;
-            margin: 0.5rem 0;
-            color: #000;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitle {
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
-            font-weight: 700;
-            color: var(--secondary-color);
-            letter-spacing: 1px;
-            background-color: #000;
-            padding: 4px 8px;
-            display: inline-block;
-            margin: 0.5rem 0;
-            border-radius: 4px;
-        }
-
-        .main-content {
-            padding: 2rem;
-            background: var(--container-bg);
-        }
-
-        .section {
-            margin: 3rem auto;
-            max-width: 800px;
-        }
-
-        .section:first-child {
-            margin-top: 1rem;
-        }
-
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--highlight-color);
-        }
-
-        .section-content {
-            font-size: 0.95rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .feature-item {
-            padding: 1.5rem;
-            background: rgba(245, 245, 245, 0.5);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-2px);
-        }
-
-        .feature-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary-color);
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--secondary-color);
-            position: relative;
-            overflow: hidden;
-            margin: 3rem -2rem -2rem;
-        }
-
-        .primary-button {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: var(--highlight-color);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .primary-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        @media (max-width: 768px) {
-            .page-wrapper {
-                padding: 0.5rem;
-            }
-            
-            .hero {
-                padding: 2rem 1rem;
-            }
-            
-            .main-content {
-                padding: 1.5rem;
-            }
-            
-            .section {
-                margin: 2rem auto;
-            }
-            
-            .feature-grid {
-                gap: 1rem;
-            }
-            
-            .cta-section {
-                padding: 2rem 1rem;
-                margin: 2rem -1.5rem -1.5rem;
-            }
-        }
-
-        #background-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        /* List styling */
-        .section-content ul {
-            padding-left: 1.2rem;
-        }
-
-        .section-content li {
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .section-content li::before {
-            content: '→';
-            position: absolute;
-            left: -1.2rem;
-            color: var(--highlight-color);
-        }
-
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .resource-item {
-            padding: 1.5rem;
-            background: rgba(245, 245, 245, 0.5);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            transition: all 0.2s ease;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-
-        .resource-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--container-shadow);
-            background: var(--container-bg);
-        }
-
-        .resource-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary-color);
-        }
-
-        .resource-item p {
-            font-size: 0.9rem;
-            margin: 0;
-            opacity: 0.9;
-        }
-
-        .waitlist-cta {
-            margin-top: 1.5rem;
-            text-align: center;
-        }
-    </style>
-    
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Load scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" defer></script>
-    <script src="script.min.js" defer></script>
 </head>
 <body class="loading">
     <div id="loading-screen">Loading...</div>
-    <div id="background-canvas"></div>
     
     <div class="page-wrapper">
         <div class="page-container">
-            <section class="hero">
-                <div id="p5-container"></div>
-                <div class="hero-content">
-                    <h1 class="word">UNLOCK VIBE CODING</h1>
-                    <h2 class="title">LEARN AI-POWERED DEVELOPMENT</h2>
-                    <h3 class="subtitle">ONLINE COURSE COMING SOON</h3>
+            <!-- Fixed hero section with inline styles for absolute centering -->
+            <!-- Important: forcing zero margins/padding and centering to fix misalignment -->
+            <section class="hero" id="hero-section" style="text-align:center !important; width:100%; padding:2.5rem 0;">
+                <div class="hero-content" style="text-align:center !important; margin:0 auto !important; width:100%; max-width:800px; padding:0 !important;">
+                    <h1 class="word" id="main-heading" style="text-align:center !important; margin:0 !important; padding:0 !important; width:100%; display:block; box-sizing:border-box; text-indent:0 !important;">Build Your Own App This Weekend</h1>
+                    <h2 class="title" style="text-align:center !important; margin:0.5rem 0 !important; width:100%; display:block; box-sizing:border-box; text-indent:0 !important;">Without Writing Code</h2>
+                    <h3 class="subtitle" style="display:inline-block; margin:0.5rem auto !important; text-align:center !important; text-indent:0 !important;">No devs. No overwhelm. Just results.</h3>
                 </div>
             </section>
 
             <div class="main-content">
+                <div class="hero-callout" style="text-align:center !important; margin:0.75rem auto; max-width:800px;">
+                    Go from <strong>"I have an idea but don't know where to start"</strong><br>
+                    to launching your own interactive tool — fast.
+                </div>
+                <section class="section developer-section">
+                    <h2 class="developer-heading">
+                        <span>STOP WAITING FOR DEVELOPERS.</span>
+                        <span class="highlight">START BUILDING WITH AI.</span>
+                    </h2>
+                    
+                    <p class="developer-intro">
+                        If you've ever had an idea for an app or website but felt stuck because you're not technical — this is for you.
+                    </p>
+                    
+                    <ul class="developer-list">
+                        <li>You don't need a computer science degree.</li>
+                        <li>You don't need to hire a developer.</li>
+                        <li>And you definitely don't need to give up on your ideas.</li>
+                    </ul>
+                    
+                    <p class="developer-outro">
+                        This course shows you how to bring your vision to life using powerful new AI tools — even if you've never coded before.
+                    </p>
+                </section>
+
                 <section class="section">
-                    <h2 class="section-title">Join the Waitlist</h2>
+                   
+                    <div class="ml-embedded" data-form="AMm9JJ"></div>
+
+                    <h2 class="section-title">Why Most People Stay Stuck</h2>
                     <div class="section-content">
-                        <p>Be the first to know when our comprehensive online course launches. Get early access and special pricing when you join our waitlist today.</p>
+                        <ul class="problem-list">
+                            <li>Hiring a developer is expensive and slow</li>
+                            <li>No-code tools are clunky and don't do exactly what you want</li>
+                            <li>Tutorials are confusing or out-of-date</li>
+                            <li>You try stitching things together, get overwhelmed, and quit</li>
+                        </ul>
+                        <p><strong>This course gives you a better way.</strong></p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Tried Other AI Builders and Got Stuck?</h2>
+                    <div class="section-content">
+                      <p>You're not alone. A lot of AI site builders promise the world — just write a single prompt and voilà: your whole app appears like magic. But here's the catch:</p>
+                      <ul class="problem-list">
+                        <li>You can't access or edit the code</li>
+                        <li>When something breaks, you're stuck in a loop with no way to fix it</li>
+                        <li>You get something flashy, but not something launch-ready</li>
+                      </ul>
+                  
+                      <p>What we'll show you in this course gives you real control — without requiring years of coding knowledge.</p>
+                  
+                      <p>You'll invest just a couple hours to learn how to go one level deeper with AI. With that, you'll be able to:</p>
+                      <ul>
+                        <li>Fix bugs instead of giving up</li>
+                        <li>Launch an actual, working product</li>
+                        <li>Make something specific — not just generic templates</li>
+                      </ul>
+                  
+                      <p>Already started something with a hosted AI builder? Great. You can download your code and apply what you learn here to take it further.</p>
+                  
+                      <p><strong>This is the difference between playing with a prototype… and shipping a real product.</strong></p>
+                    </div>
+                  </section>
+
+                
+
+                <section class="section">
+                    <h2 class="section-title">Build Custom Apps and Automations Without Developers</h2>
+                    <div class="section-content">
+                        <p>You'll learn a fast, beginner-friendly system to build custom tools with AI.</p>
+                        <p>Inside, you'll discover:</p>
+                        <ul>
+                            <li>How to build and launch your first interactive website in 30 minutes</li>
+                            <li>How to connect to real-world apps and APIs</li>
+                            <li>How to plan and build more complex apps</li>
+                            <li>How to debug and get unstuck when things break</li>
+                            <li>How to collaborate with AI step-by-step — even if you're starting from scratch</li>
+                        </ul>
+                        <p><strong>Students launch their first webiste in under an hour.</strong></p>
+                    </div>
+                </section>
+
+                <section class="section instructor-section">
+                    <h2 class="section-title">Learn From Someone Who's Done It</h2>
+                    <div class="section-content instructor-grid">
+                        <div class="instructor-image">
+                            <img src="images/alfred-speaker.jpg" alt="Alfred speaking at a tech event" class="instructor-photo" width="220" height="147" loading="lazy">
+                        </div>
+                        <div class="instructor-text">
+                            <h3>Hi, I'm Alfred.</h3>
+                            <p>I'm a creative technologist who loves teaching and exploring emerging technologies. I've worked at Harvard helping the university adopt cutting-edge tools, and even taught game design at MIT back in the Flash era.</p>
+                            
+                            <p>These days, I'm focused on helping people build powerful web apps using AI — without writing a single line of code. When I first discovered what was possible, I was skeptical. But then I built Mixcard.me using nothing but AI tools and APIs — no traditional coding required. It blew my mind, and I realized this power should be available to everyone.</p>
+                            
+                            <p>I've taught this course live, and students were able to launch their first AI-powered websites in under 20 minutes — no coding background needed.</p>
+                            
+                           
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Who This Course is For</h2>
+                    <div class="section-content">
+                        <ul>
+                            <li>Creators and entrepreneurs with untapped ideas</li>
+                            <li>Service providers who want to automate or productize</li>
+                            <li>Freelancers looking to stand out and offer more</li>
+                            <li>Curious non-coders who want to build things themselves</li>
+                        </ul>
+                        <p><strong>If you've got creativity and a little curiosity — this will unlock a whole new world.</strong></p>
+                    </div>
+                </section>
+
+                <section class="section bonus-section">
+                    <h2 class="section-title">Join the Waitlist and Get Exclusive Bonuses</h2>
+                    <div class="section-content">
+                        <p>Get early access + extras available only to the first students:</p>
+                        <ul>
+                            <li><strong>Special pricing</strong> only for early signups</li>
+                            <li><strong>Templates and swipe files</strong> to save hours</li>
+                            <li><strong>Personalized help:</strong> I'll take special requests from waitlisters</li>
+                            <li><strong>Private community</strong> access for creative builders</li>
+                            <li><strong>Behind-the-scenes look</strong> at how this course is built — and a chance to shape it</li>
+                        </ul>
                         <div class="waitlist-cta">
                             <div class="ml-embedded" data-form="AMm9JJ"></div>
                         </div>
@@ -393,61 +225,137 @@
                 </section>
 
                 <section class="section">
-                    <h2 class="section-title">What You'll Learn</h2>
+                    <h2 class="section-title">What You'll Walk Away With</h2>
                     <div class="section-content">
                         <ul>
-                            <li>How to use AI to write, debug, and optimize code</li>
-                            <li>Building web applications without traditional coding</li>
-                            <li>Modern development workflows and best practices</li>
-                            <li>Turning your ideas into functional prototypes</li>
-                            <li>Understanding and leveraging AI capabilities</li>
+                            <li>Your own working app, automation, or site</li>
+                            <li>The tools to build again and again — without hiring anyone</li>
+                            <li>A creative spark and a new level of confidence</li>
+                            <li>Real-world results in days, not months</li>
                         </ul>
+                        <p><strong>This isn't just a course — it's your launchpad.</strong></p>
                     </div>
                 </section>
 
-                <section class="section">
-                    <h2 class="section-title">Resources</h2>
+                <section class="section testimonials-section">
+                    <h2 class="section-title">What Our Students Say</h2>
+                    <div class="testimonial-arrow prev" aria-label="Previous testimonial"></div>
+                    <div class="testimonial-arrow next" aria-label="Next testimonial"></div>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card active">
+                            <div class="testimonial-content">
+                                "The vibe coding workshop hosted by Alfred gave me the chance to grow, connect, and have a great time doing it. I appreciated how much I learned, but even more, the community and conversations made it special. Learning vibe coding has unlocked a lot of new opportunities I had previously not thought possible. It was the perfect mix of learning and fun."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="images/ray.jpg" alt="Raymond Delacruz" width="80" height="80" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <p class="author-name">Raymond Delacruz</p>
+                                    <p class="author-title">Product Manager</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "Excellent hands on and practical class. We built our first app in under an hour with zero coding. Highly recommend it."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="images/mike.jpg" alt="Mike Vranjkovic" width="80" height="80" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <p class="author-name">Mike Vranjkovic</p>
+                                    <p class="author-title">Managing Partner/Cofounder, Webstreet</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "I launched an amazing countdown birthday website for my boyfriend in just 30 minutes—without ever having coded before, just by prompting Cursor! 🤯 Now, I'm excited to start building my own apps that integrate with Notion. 🚀"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="images/sara.jpg" alt="Sara Castellanos" width="80" height="80" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <p class="author-name">Sara Castellanos</p>
+                                    <p class="author-title">Founder, PRONOIA DETAILS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-navigation">
+                        <div class="testimonial-dot active" data-index="0"></div>
+                        <div class="testimonial-dot" data-index="1"></div>
+                        <div class="testimonial-dot" data-index="2"></div>
+                    </div>
+                </section>
+
+                <section class="section hero-callout">
+                    <p>
+                      <strong>Built with the Same Tools You'll Learn.</strong><br>
+                      This entire page was created using AI — no hosting fees, no drag-and-drop templates, and no hand-coding from scratch.<br><br>
+                      Everything you see here was generated and customized through AI prompting, just like you'll learn to do in the course.
+                    </p>
+                  </section>
+
+                <section class="section faq-section">
+                    <h2 class="section-title">Got Questions?</h2>
                     <div class="section-content">
-                        <div class="resource-grid">
-                            <a href="course-landing.html" class="resource-item">
-                                <h3 class="resource-title">Online Course</h3>
-                                <p>Transform your ideas into reality with our comprehensive AI-powered development course.</p>
-                            </a>
-                            <a href="workshop.html" class="resource-item">
-                                <h3 class="resource-title">Live Workshop</h3>
-                                <p>Join our hands-on workshop in Medellín to get started with AI-powered development.</p>
-                            </a>
-                            <a href="core.html" class="resource-item">
-                                <h3 class="resource-title">Core Concepts</h3>
-                                <p>Learn the fundamentals of AI-powered development and best practices.</p>
-                            </a>
-                            <a href="installation.html" class="resource-item">
-                                <h3 class="resource-title">Installation Guide</h3>
-                                <p>Step-by-step instructions for setting up your development environment.</p>
-                            </a>
+                        <div class="faq-item">
+                            <div class="faq-question">I've never coded. Can I really do this?</div>
+                            <div class="faq-answer">
+                                <p>Yes. Most people who go through this have zero coding experience — and are blown away by what they build.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">What if I don't have an idea yet?</div>
+                            <div class="faq-answer">
+                                <p>We'll help you find one. You likely have something already — a workflow, a process, a tool you wish existed. This course helps surface it and bring it to life.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">How is this different from no-code platforms?</div>
+                            <div class="faq-answer">
+                                <p>This isn't drag-and-drop. It's smarter. You'll learn how to actually collaborate with AI to build flexible, custom solutions that adapt to what you need.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Is this a coding bootcamp?</div>
+                            <div class="faq-answer">
+                                <p>Nope. This skips the traditional code-learning curve and shows you how to work with AI like a creative partner — not like a student learning syntax.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">I tried other AI builders and got stuck — how is this different?</div>
+                            <div class="faq-answer">
+                                <p>Most hosted tools give you a quick demo — but not real control. This course teaches you how to actually build and fix things with AI, using real tools and editable code. You'll stop hitting walls and start making real progress.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 <section class="cta-section">
                     <div id="p5-container-footer"></div>
-                    <h2 class="section-title">Ready to Start?</h2>
-                    <p class="section-content">Join our waitlist today and be part of the AI-powered development revolution.</p>
-                    <p><strong>Early access and special pricing for waitlist members!</strong></p>
-                    <br>
+                    <h2 class="section-title">The Course Launches Soon — Be the First In</h2>
+                    <p>If you're on the waitlist, you'll get:</p>
+                    <ul class="benefits-list">
+                        <li>First access before public launch</li>
+                        <li>Custom support and extra content</li>
+                        <li>A chance to shape the course</li>
+                        <li>A head start on building something amazing</li>
+                    </ul>
+                    <p class="cohort-text">Spots are limited — join now and be part of the first cohort.</p>
                     <div class="ml-embedded" data-form="AMm9JJ"></div>
                 </section>
             </div>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            window.addEventListener('load', () => {
-                document.body.classList.add('loaded');
-                document.getElementById('loading-screen').classList.add('hidden');
-            });
-        });
-    </script>
+    <!-- Load non-critical JavaScript with defer for better performance -->
+    <script src="js/min/main.min.js" defer></script>
 </body>
 </html> 
