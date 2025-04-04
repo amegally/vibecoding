@@ -1,0 +1,14 @@
+{
+  "name": "unlock-vibe-coding",
+  "version": "1.0.0",
+  "description": "Vibe Coding Course Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "serve": "python -m http.server || npx http-server",
+    "dev": "python -m http.server || npx http-server",
+    "build": "echo 'No build step required'"
+  },
+  "keywords": ["coding", "course", "ai"],
+  "author": "",
+  "license": "ISC"
+} 
