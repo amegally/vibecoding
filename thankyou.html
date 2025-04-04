@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for joining the Unlock Vibe Coding waitlist. You've secured early bird pricing!">
+    <meta name="keywords" content="vibe coding, AI coding, app development, no-code, low-code, build app with AI, AI course">
+    <meta name="author" content="Vibe Coding">
+    <meta property="og:title" content="Thanks for Joining! - Unlock Vibe Coding">
+    <meta property="og:description" content="You're in! Thanks for joining the waitlist. You've secured the early bird pricing.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thanks for Joining! - Unlock Vibe Coding">
+    <meta name="twitter:description" content="You're in! Thanks for joining the waitlist. You've secured the early bird pricing.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://unlockvibecoding.com/thankyou.html">
+    <title>Thanks for Joining! - Unlock Vibe Coding</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload most critical font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" as="style" crossorigin>
+    
+    <!-- Load fonts with font-display:swap to prevent FOIT -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="css/min/main.min.css" as="style">
+    <link rel="preload" href="js/min/main.min.js" as="script">
+    
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="css/min/main.min.css?v=1.1">
+    
+    <style>
+        .invite-box {
+            background: #fff;
+            border: 2px solid var(--highlight-color);
+            border-radius: 12px;
+            padding: 40px 30px;
+            margin: 35px auto;
+            position: relative;
+            font-family: 'Space Mono', monospace;
+            white-space: pre-wrap;
+            max-width: 650px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            text-align: left;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        .invite-box::before {
+            display: none;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--highlight-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .copy-btn:hover {
+            background: #c02822;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .success-icon {
+            display: block;
+            margin: 0 auto 20px;
+            width: 80px;
+            height: 80px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .success-icon::before {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .thank-you-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .thank-you-headline {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .thank-you-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .invite-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .invite-instruction {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .home-button-container {
+            margin: 20px auto 40px;
+            max-width: 650px;
+        }
+        
+        .home-button-content {
+            padding: 0;
+        }
+        
+        .action-button {
+            background-color: #e1332d !important;
+            color: #fff !important;
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-weight: 400 !important;
+            padding: 14px 20px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            cursor: pointer !important;
+            width: 100% !important;
+            font-size: 1.4rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1) !important;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .action-button:hover {
+            background-color: #c02822 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,.25) !important;
+        }
+        
+        .email-button {
+            background-color: #3273dc !important;
+        }
+        
+        .email-button:hover {
+            background-color: #2366d1 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-headline {
+                font-size: 2.8rem;
+            }
+            
+            .thank-you-text {
+                font-size: 1rem;
+            }
+            
+            .invite-box {
+                padding: 25px 20px;
+                margin: 20px auto;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <div id="loading-screen">Loading...</div>
+    
+    <div class="page-wrapper">
+        <div class="page-container">
+            <!-- Hero section -->
+            <section class="hero" id="hero-section">
+                <div class="hero-content">
+                    <h1 class="word" id="main-heading">You're In!</h1>
+                </div>
+            </section>
+
+            <div class="main-content">
+                <div class="thank-you-container">
+                    <div class="success-icon"></div>
+                    <p class="thank-you-text">
+                        Thanks for joining the waitlist. We've got you locked in at the Early-Bird Price of $200—saving you $100 off the price! We'll send you all the details soon via email.
+                    </p>
+                    
+                    <h2 class="invite-section-title">Learning is Better and Easier With a Friend</h2>
+                    
+                    <p class="invite-instruction">
+                        Know someone else who'd love to build an AI-powered app without coding? Invite them to join you! Just copy and paste this message into an email or text:
+                    </p>
+                    
+                    <div class="invite-box" id="invite-text">Hey,
+
+I just joined a course to build an AI-powered app in one weekend—no coding skills needed. It's $200 now (they said it'll go up by $100 later). Figured it'd be cool if we did it together and swapped ideas as we go.
+
+Here's the link to sign up for the waitlist: http://unlockvibecoding.com/
+
+Join me!</div>
+                    
+                    <div class="home-button-container">
+                        <div class="home-button-content">
+                            <a href="#" id="email-friend" class="action-button email-button">EMAIL A FRIEND</a>
+                            <a href="index.html" class="action-button">BACK TO HOME</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript with defer for better performance -->
+    <script src="js/min/main.min.js" defer></script>
+    <script>
+        function copyInvite() {
+            const inviteText = document.getElementById('invite-text').innerText;
+            navigator.clipboard.writeText(inviteText).then(() => {
+                const copyBtn = document.querySelector('.copy-btn');
+                const originalText = copyBtn.innerText;
+                copyBtn.innerText = 'Copied!';
+                copyBtn.style.backgroundColor = '#28a745';
+                
+                setTimeout(() => {
+                    copyBtn.innerText = originalText;
+                    copyBtn.style.backgroundColor = '';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy text. Please try manually selecting and copying the text.');
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        // Add email functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailButton = document.getElementById('email-friend');
+            emailButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const inviteText = document.getElementById('invite-text').innerText;
+                const subject = "Join me for an AI app building course";
+                const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(inviteText)}`;
+                window.location.href = mailtoLink;
+            });
+        });
+        
+        // Handle loading screen
+        window.addEventListener('load', function() {
+            document.body.classList.remove('loading');
+            document.body.classList.add('loaded');
+            
+            setTimeout(function() {
+                document.getElementById('loading-screen').classList.add('hidden');
+            }, 500);
+        });
+    </script>
+</body>
+</html> 
