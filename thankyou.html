@@ -226,27 +226,29 @@
                 <div class="thank-you-container">
                     <div class="success-icon"></div>
                     <p class="thank-you-text">
-                        Thanks for joining the waitlist. We've got you locked in at the Early-Bird Price of $200—saving you $100 off the price! We'll send you all the details soon via email.
+                        Thanks for joining! You're all set to start building your first AI-powered project. We'll send you the payment link tomorrow to get started with the first lesson for only $10, where you'll build an interactive birthday countdown timer and learn the foundations for the rest of the course.
                     </p>
                     
+                    <!--
                     <h2 class="invite-section-title">Learning is Better and Easier With a Friend</h2>
                     
                     <p class="invite-instruction">
-                        Know someone else who'd love to build an AI-powered app without coding? Invite them to join you! Just copy and paste this message into an email or text:
+                        Know someone else who'd love to build their first AI-powered project? Invite them to join you! Just copy and paste this message into an email or text:
                     </p>
                     
                     <div class="invite-box" id="invite-text">Hey,
 
-I just joined a course to build an AI-powered app in one weekend—no coding skills needed. It's $200 now (they said it'll go up by $100 later). Figured it'd be cool if we did it together and swapped ideas as we go.
+I just signed up to build my first AI-powered project—an interactive birthday countdown timer. It's only $10 for the first lesson, and you'll learn how to build and launch your own project online without any coding experience.
 
-Here's the link to sign up for the waitlist: http://unlockvibecoding.com/
+Here's the link to join: http://unlockvibecoding.com/
 
 Join me!</div>
                     <button class="copy-btn" onclick="copyInvite()">Copy</button>
+                    -->
                     
                     <div class="home-button-container">
                         <div class="home-button-content">
-                            <a href="#" id="email-friend" class="action-button email-button">EMAIL A FRIEND</a>
+                            <!-- <a href="#" id="email-friend" class="action-button email-button">EMAIL A FRIEND</a> -->
                             <a href="index.html" class="action-button">BACK TO HOME</a>
                         </div>
                     </div>
@@ -258,6 +260,7 @@ Join me!</div>
     <!-- Load JavaScript with defer for better performance -->
     <script src="js/min/main.min.js" defer></script>
     <script>
+        /*
         function copyInvite() {
             const inviteText = document.getElementById('invite-text').innerText;
             navigator.clipboard.writeText(inviteText).then(() => {
@@ -287,6 +290,7 @@ Join me!</div>
                 window.location.href = mailtoLink;
             });
         });
+        */
         
         // Handle loading screen
         window.addEventListener('load', function() {

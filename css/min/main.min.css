@@ -45,7 +45,7 @@
 
 .price-tag {
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 400;
     margin: 20px 0 12px;
     font-family: 'Bebas Neue', sans-serif;
@@ -64,8 +64,10 @@
 
 .discount-price {
     color: var(--highlight-color);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     position: relative;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .discount-text {
@@ -191,4 +193,13 @@
         margin: 0.5rem auto;
         max-width: 90%;
     }
+}
+
+.lesson-description {
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #666;
+    margin: 0.5rem auto 1rem;
+    max-width: 90%;
+    text-align: center;
 } 
