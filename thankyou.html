@@ -208,6 +208,60 @@
                 font-size: 0.9rem;
             }
         }
+        
+        .course-preview {
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .course-preview h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 30px;
+            text-align: left;
+            letter-spacing: 1px;
+        }
+        
+        .course-preview ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .course-preview li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            line-height: 1.4;
+            text-align: left;
+            display: block;
+        }
+        
+        .course-preview li:last-child {
+            border-bottom: none;
+        }
+        
+        @media (max-width: 768px) {
+            .course-preview {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            
+            .course-preview h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+            
+            .course-preview li {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body class="loading">
@@ -226,10 +280,35 @@
                 <div class="thank-you-container">
                     <div class="success-icon"></div>
                     <p class="thank-you-text">
-                        Thank You for entering your email. You can now preview and buy the full course on our course platform!
-
-                        <a href="https://course.unlockvibecoding.com/unlock-vibe-coding-lesson-1" >https://course.unlockvibecoding.com/unlock-vibe-coding-lesson-1</a>
+                        Thank You for entering your email - You can now preview and buy the full course on our course platform! In less than one hour, and for only $10, you'll launch your own custom and interactive website and have the foundations you need to keep building amazing projects!
                     </p>
+                    
+                    <div class="home-button-container">
+                        <div class="home-button-content">
+                            <a href="https://course.unlockvibecoding.com/unlock-vibe-coding-lesson-1/buy" class="action-button">GET STARTED NOW - $10</a>
+                        </div>
+                    </div>
+
+                    <div class="course-preview">
+                        <h2>Course Preview</h2>
+                        <ul>
+                            <li>Course Introduction by Alfred – 1 min</li>
+                            <li>Getting Started with Cursor – 2 mins</li>
+                            <li>Cursor Interface Overview – 2 mins</li>
+                            <li>Creating Your First App in Cursor: Birthday Countdown Timer – 5 mins</li>
+                            <li>Designing with Cursor: Customizing your Site with Screenshots – 6 mins</li>
+                            <li>Using the ASK Tool in Cursor – 8 mins</li>
+                            <li>Undoing Changes in Cursor – 2 mins</li>
+                            <li>Get Creative with Your Website – 1 min</li>
+                            <li>Publishing Your Website Online – 5 mins</li>
+                        </ul>
+                    </div>
+
+                    <div class="home-button-container">
+                        <div class="home-button-content">
+                            <a href="https://course.unlockvibecoding.com/unlock-vibe-coding-lesson-1/buy" class="action-button">GET STARTED NOW</a>
+                        </div>
+                    </div>
                     
                     <!--
                     <h2 class="invite-section-title">Learning is Better and Easier With a Friend</h2>
@@ -247,13 +326,6 @@ Here's the link to join: http://unlockvibecoding.com/
 Join me!</div>
                     <button class="copy-btn" onclick="copyInvite()">Copy</button>
                     -->
-                    
-                    <div class="home-button-container">
-                        <div class="home-button-content">
-                            <!-- <a href="#" id="email-friend" class="action-button email-button">EMAIL A FRIEND</a> -->
-                            <a href="https://course.unlockvibecoding.com/unlock-vibe-coding-lesson-1" class="action-button">GET STARTED NOW!</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
