@@ -800,4 +800,41 @@ img {
     .instructor-text {
         clear: both; /* Ensure text is below image */
     }
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.benefits-list li {
+    position: relative;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.benefits-list li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@media (max-width: 768px) {
+    .benefits-list {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        margin: 1rem 0;
+    }
+
+    .benefits-list li {
+        font-size: 0.95rem;
+        padding-left: 1.75rem;
+    }
 } 

@@ -1,0 +1,170 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background: #fff;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Logo */
+.logo-link {
+    display: inline-block;
+    margin-bottom: 60px;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Main heading styles */
+.main-heading {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #1A1A1A;
+}
+
+.main-heading .highlight {
+    display: block;
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 24px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    font-weight: 500;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #1A1A1A;
+}
+
+/* Button styling */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background: #2B55E4;
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+    background: #1a44d3;
+    transform: translateY(-1px);
+}
+
+/* Benefits list */
+.benefits {
+    margin: 60px 0;
+    text-align: left;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefits-list {
+    list-style: none;
+}
+
+.benefits-list li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #1A1A1A;
+}
+
+.benefits-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    background-color: #2B55E4;
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Bottom section */
+.bottom-section {
+    margin: 60px 0;
+    text-align: center;
+}
+
+.bottom-text {
+    font-size: 32px;
+    font-weight: 700;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #1A1A1A;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    body {
+        padding: 30px 16px;
+    }
+
+    .logo {
+        height: 32px;
+    }
+
+    .main-heading {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .benefits-list li {
+        font-size: 16px;
+    }
+
+    .bottom-text {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-heading {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+} 
