@@ -16,16 +16,16 @@
     box-shadow: 0 8px 20px rgba(0,0,0,.18);
 }
 
-.waitlist-label{
+.waitlist-label {
     background: linear-gradient(90deg, var(--highlight-color) 0%, #7a1c30 50%, var(--primary-color) 100%);
     color: white;
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
-    padding: 12px 15px;
+    padding: 15px 20px;
     border-radius: 0;
     text-align: center;
     margin-bottom: 0;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     letter-spacing: 1.5px;
     position: relative;
     display: block;
@@ -72,15 +72,16 @@
 
 .discount-text {
     text-align: center;
-    font-size: 1rem;
-    margin: 8px 0 20px;
+    font-size: 1.4rem;
+    margin: 15px 0;
     color: var(--primary-color);
-    font-weight: 400;
+    font-weight: 700;
     font-family: 'Space Mono', monospace;
+    line-height: 1.4;
 }
 
 .waitlist-form-container {
-    padding: 0 25px 25px;
+    padding: 30px 25px;
 }
 
 .waitlist-featured input[type=email]{
@@ -129,8 +130,8 @@
 
 @media (max-width: 768px) {
     .waitlist-label {
-        font-size: 1.1rem;
-        padding: 10px;
+        font-size: 1.2rem;
+        padding: 12px 15px;
     }
     
     .price-tag {
@@ -148,8 +149,8 @@
     }
     
     .discount-text {
-        font-size: 0.9rem;
-        margin: 6px 0 15px;
+        font-size: 1.1rem;
+        margin: 12px 0;
     }
 }
 
@@ -196,10 +197,10 @@
 }
 
 .lesson-description {
-    font-size: 0.9em;
-    line-height: 1.4;
+    font-size: 1.1rem;
+    line-height: 1.5;
     color: #666;
-    margin: 0.5rem auto 1rem;
+    margin: 15px auto 25px;
     max-width: 90%;
     text-align: center;
 } 
