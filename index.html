@@ -169,6 +169,759 @@
         #loading-screen {
             z-index: 2000; /* Higher than the sticky banner */
         }
+        
+        /* Guarantee section styles */
+        .guarantee-bar {
+            width: 100%;
+            background: #f3f9ff;
+            border-top: 1px solid #d0e5ff;
+            border-bottom: 1px solid #d0e5ff;
+            display: flex;
+            justify-content: center;
+            padding: 12px 0;
+            margin: 0 0 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .guarantee-inner {
+            max-width: 960px;
+            width: 100%;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .guarantee-bar img {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .guarantee-text {
+            line-height: 1.4;
+        }
+
+        .guarantee-text .headline {
+            font-weight: 600;
+            font-size: 18px;
+            color: #094067;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .guarantee-text .sub {
+            font-size: 14px;
+            letter-spacing: .02em;
+            color: #094067;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* mobile adjustments for guarantee section */
+        @media (max-width: 640px) {
+            .guarantee-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .guarantee-text br {
+                display: none;
+            }
+            
+            .guarantee-text .headline,
+            .guarantee-text .sub {
+                display: block;
+                margin-bottom: 4px;
+            }
+            
+            .guarantee-text .headline {
+                font-size: 16px;
+            }
+            
+            .guarantee-text .sub {
+                font-size: 13px;
+            }
+        }
+        
+        /* Maker section styles */
+        .maker-section {
+            padding: 10px 20px 0;
+            background-color: #fff;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 0;
+        }
+        
+        .maker-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .maker-headline {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: #111;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        
+        .maker-subheadline {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .maker-cta {
+            margin-top: 30px;
+        }
+        
+        .maker-button {
+            background-color: #FF4500;
+            color: white;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            padding: 16px 42px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(255, 69, 0, 0.4);
+            transition: all 0.3s ease;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+        
+        .maker-button:hover {
+            background-color: #FF6347;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 69, 0, 0.5);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .mini-guarantee {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .mini-guarantee-text {
+            font-family: 'Space Mono', monospace;
+            font-weight: 600;
+            font-size: 16px;
+            color: #094067;
+            margin-bottom: 5px;
+        }
+        
+        .mini-guarantee-subtext {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            color: #094067;
+            margin: 0;
+            letter-spacing: 0.02em;
+        }
+        
+        .trust-badge {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .trust-badge-img {
+            max-width: 300px;
+            height: auto;
+            display: inline-block;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        
+        .trust-badge-img:hover {
+            opacity: 1;
+        }
+        
+        /* Testimonial section fixes */
+        .testimonials-section {
+            position: relative;
+            padding: 2rem 1.5rem;
+            background: #fff;
+            border-radius: 16px;
+            margin: 50px auto;
+            max-width: 1000px;
+            overflow: hidden;
+            isolation: isolate; /* Create new stacking context */
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .testimonials-grid {
+            position: relative;
+            width: 100%;
+            overflow: visible;
+            min-height: 250px; /* Reduced minimum height */
+            isolation: isolate; /* Create new stacking context */
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        
+        .testimonial-content {
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+        
+        .testimonial-content::before,
+        .testimonial-content::after {
+            font-family: serif;
+            font-size: 2.5rem;
+            color: #f5e642;
+            line-height: 0;
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .testimonial-content::after {
+            content: '"';
+            display: inline-block;
+            margin-left: 0.25rem;
+            vertical-align: bottom;
+        }
+        
+        .testimonial-card {
+            background: #fff;
+            padding: 1.5rem;
+            display: none;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            position: absolute;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: auto; /* Let height be determined by content */
+            z-index: 0;
+            overflow: visible;
+        }
+        
+        .testimonial-card.active {
+            display: block;
+            opacity: 1;
+            z-index: 5;
+        }
+        
+        .testimonial-author {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center; /* Center author info */
+            margin-top: 1.5rem;
+        }
+        
+        .author-image {
+            position: relative;
+            z-index: 15;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid #f5e642;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .author-info {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        /* Mobile styles for maker section */
+        @media (max-width: 768px) {
+            .maker-section {
+                padding: 10px 15px 0;
+            }
+            
+            .maker-headline {
+                font-size: 2.4rem;
+            }
+            
+            .maker-subheadline {
+                font-size: 1.2rem;
+                line-height: 1.4;
+                margin-bottom: 30px;
+            }
+            
+            .maker-button {
+                font-size: 1.5rem;
+                padding: 12px 32px;
+            }
+            
+            .mini-guarantee {
+                margin-top: 15px;
+            }
+            
+            .mini-guarantee-text {
+                font-size: 14px;
+            }
+            
+            .mini-guarantee-subtext {
+                font-size: 12px;
+            }
+            
+            .trust-badge {
+                margin-top: 12px;
+            }
+            
+            .trust-badge-img {
+                max-width: 200px;
+            }
+            
+            .testimonials-grid {
+                min-height: 300px; /* Adjusted for mobile */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .testimonials-grid {
+                min-height: 380px; /* Adjusted for small mobile */
+            }
+            
+            .author-image {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        /* Remove the extra image at bottom of testimonials */
+        .testimonials-section > img,
+        .testimonials-grid + img,
+        .testimonial-navigation + img {
+            display: none !important;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: block;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 700px;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease-out;
+            position: relative;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .close-modal:hover {
+            color: #000;
+        }
+        
+        .modal h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #111;
+        }
+        
+        .modal-body {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .modal-body p {
+            margin-bottom: 15px;
+        }
+        
+        #read-story-link {
+            color: #FF4500;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        
+        #read-story-link:hover {
+            color: #FF6347;
+        }
+        
+        /* Modal Mobile Styles */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+                margin: 15% auto;
+                padding: 20px;
+            }
+            
+            .modal h2 {
+                font-size: 2rem;
+            }
+            
+            .modal-body {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Compact instructor section */
+        .instructor-section {
+            padding: 40px 0 30px;
+            margin: 40px auto;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            max-width: 1000px;
+        }
+        
+        .instructor-image img {
+            max-width: 160px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .instructor-grid {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+        
+        .instructor-title {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+            line-height: 1.1;
+        }
+        
+        .instructor-text {
+            flex: 1;
+        }
+        
+        .instructor-text p {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .instructor-text a {
+            color: #FF4500;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        
+        .instructor-text a:hover {
+            color: #FF6347;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .instructor-section {
+                padding: 30px 0 25px;
+                margin: 30px auto;
+            }
+            
+            .instructor-image img {
+                max-width: 140px;
+            }
+            
+            .instructor-grid {
+                gap: 20px;
+            }
+            
+            .instructor-title {
+                font-size: 1.8rem;
+                margin-bottom: 12px;
+            }
+            
+            .instructor-text p {
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+            }
+            
+            .build-list li, .persona-list li {
+                margin-bottom: 25px;
+                padding-left: 35px;
+            }
+            
+            .check-icon, .person-icon {
+                font-size: 22px;
+            }
+            
+            .build-list strong, .persona-list strong {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .instructor-grid {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .instructor-title {
+                text-align: center;
+            }
+            
+            .instructor-image img {
+                max-width: 140px;
+            }
+        }
+        
+        /* Styled checkmarks and list spacing */
+        .build-list {
+            list-style: none;
+            padding: 0;
+            max-width: 900px;
+            margin: 25px auto 0;
+            text-align: left;
+        }
+        
+        .build-list li, .persona-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-family: 'Space Mono', monospace;
+            padding-bottom: 10px;
+        }
+        
+        .check-icon {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #4CAF50;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        
+        .person-icon {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 24px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        
+        .build-list strong {
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
+        }
+        
+        .persona-list {
+            list-style: none;
+            padding: 0;
+            max-width: 900px;
+            margin: 30px auto 35px;
+            text-align: left;
+        }
+        
+        .persona-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .persona-list strong {
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
+        }
+        
+        .bonus-section {
+            padding: 30px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .cta-note {
+            text-align: center;
+            max-width: 900px;
+            margin: 20px auto;
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .section-title {
+            margin-bottom: 30px;
+        }
+        
+        .bonus-section .section-title {
+            margin-bottom: 25px;
+        }
+        
+        /* Add styles to contain dots and navigation */
+        .testimonial-navigation {
+            position: relative;
+            z-index: 20;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-dot {
+            position: relative;
+            z-index: 25;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #000;
+            opacity: 0.2;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            opacity: 1;
+        }
+
+        .testimonial-arrow {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 30;
+        }
+
+        .testimonial-arrow:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-arrow.prev {
+            left: 10px;
+        }
+
+        .testimonial-arrow.next {
+            right: 10px;
+        }
+
+        .testimonial-arrow::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #333;
+            border-right: 2px solid #333;
+            display: block;
+        }
+
+        .testimonial-arrow.prev::before {
+            transform: rotate(-135deg);
+        }
+
+        .testimonial-arrow.next::before {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-arrow {
+                width: 36px;
+                height: 36px;
+                top: 45%;
+            }
+            
+            .testimonial-arrow.prev {
+                left: 5px;
+            }
+            
+            .testimonial-arrow.next {
+                right: 5px;
+            }
+            
+            .testimonial-dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonial-arrow {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .testimonial-arrow::before {
+                width: 8px;
+                height: 8px;
+            }
+        }
     </style>
     
     <!-- Meta Pixel Code -->
@@ -220,270 +973,424 @@
                 </div>
             </section>
 
-            <div class="main-content">
-              
-                <div class="hero-callout">
-                The future belongs to builders. Those who can <strong>transform ideas into reality without technical limitations.</strong>
-            </div>
-                <div class="waitlist-featured" id="waitlist-main">
-                    <div class="waitlist-label"><span class="emoji">✨</span> AMPLIFY YOUR SKILLS — START BUILDING TODAY <span class="emoji">✨</span></div>
-                    <div class="waitlist-form-container">
-                        <p class="discount-text">Get Immediate Access to Your New AI Toolkit</p>
-                        <p class="lesson-description">Begin your journey from idea to implementation</p>
-                        <div class="ml-embedded" data-form="TWxlYS"></div>
-                    </div>
+<!-- new section -->
+<section class="maker-section">
+    <div class="maker-content">
+        <p class="maker-subheadline">Go from chatting with GPT to launching share-worthy apps that save you time, money and will blow your friends away. Your ideas are worth it.</p>
+        <div class="maker-cta">
+            <a href="https://course.unlockvibecoding.com/ai-vibe-coding-essentials/buy?coupon=LAUNCHSPECIAL" class="maker-button">Enroll Now & Start Building</a>
+            <div class="mini-guarantee">
+                <p class="mini-guarantee-text">7-Day 100% Money-Back Guarantee</p>
+                <p class="mini-guarantee-subtext">Try the course risk-free—finish the first project and decide.</p>
+                <div class="trust-badge">
+                    <img src="images/trust-badge.png" alt="Guaranteed safe & secure checkout" width="300" class="trust-badge-img">
                 </div>
-                
-                <section class="section developer-section">
-                    <h2 class="developer-heading">
-                        <span>BECOME THE PERSON WHO MAKES THINGS HAPPEN</span>
-                        <span class="highlight">WHILE OTHERS WAIT FOR PERMISSION</span>
-                    </h2>
-                    
-                    <p class="developer-intro">
-                        Imagine bringing your best ideas to life without:
-                    </p>
-                    
-                    <ul class="developer-list">
-                        <li>Waiting for developer availability</li>
-                        <li>Learning complex coding languages</li>
-                        <li>Getting stuck in technical bottlenecks</li>
-                        <li>Watching your innovations gather dust</li>
-                    </ul>
-                    
-                    <p class="developer-outro">
-                        This course is your bridge from imagination to implementation. You already have the vision. You already have the expertise in your field. Now acquire the missing piece: the ability to build and launch your own digital solutions.
-                    </p>
-                    
-                    <p class="developer-outro">
-                        Learn to create tools that solve real problems, streamline your workflow, and showcase your innovative thinking — all without writing a single line of code.
-                    </p>
-                </section>
-
-                <section class="section">
-                    <h2 class="section-title">Transform from Consumer to Creator in Your Digital Life</h2>
-                    <div class="section-content">
-                        <p>You'll master a practical system that puts you in control of technology, rather than the other way around:</p>
-                        <ul>
-                            <li>Launch your first interactive web application in under an hour — even if technology has intimidated you in the past</li>
-                            <li>Automate the repetitive tasks that currently prevent you from focusing on high-value work</li>
-                            <li>Connect your favorite tools and systems without dependency on technical teams</li>
-                            <li>Build custom solutions for challenges unique to your work or business</li>
-                            <li>Improve and adapt your creations as your needs evolve</li>
-                        </ul>
-                        <p><strong>Our participants experience their first "I built this!" moment before the first session even ends.</strong></p>
-                    </div>
-                </section>
-
-                 <section class="section testimonials-section">
-                    <h2 class="section-title">What Our Students Say</h2>
-                    <div class="testimonial-arrow prev" aria-label="Previous testimonial"></div>
-                    <div class="testimonial-arrow next" aria-label="Next testimonial"></div>
-                    <div class="testimonials-grid">
-                       
-
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                "Excellent hands on and practical class. We built our first app in under an hour with zero coding. Highly recommend it."
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="images/mike.jpg" alt="Mike Vranjkovic" width="80" height="80" loading="lazy">
-                                </div>
-                                <div class="author-info">
-                                    <p class="author-name">Mike Vranjkovic</p>
-                                    <p class="author-title">Managing Partner/Cofounder, Webstreet</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card active">
-                            <div class="testimonial-content">
-                                "The vibe coding workshop hosted by Alfred gave me the chance to grow, connect, and have a great time doing it. I appreciated how much I learned, but even more, the community and conversations made it special. Learning vibe coding has unlocked a lot of new opportunities I had previously not thought possible. It was the perfect mix of learning and fun."
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="images/ray.jpg" alt="Raymond Delacruz" width="80" height="80" loading="lazy">
-                                </div>
-                                <div class="author-info">
-                                    <p class="author-name">Raymond Delacruz</p>
-                                    <p class="author-title">Product Manager</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                "I launched an amazing countdown birthday website for my boyfriend in just 30 minutes—without ever having coded before, just by prompting Cursor! 🤯 Now, I'm excited to start building my own apps that integrate with Notion. 🚀"
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="images/sara.jpg" alt="Sara Castellanos" width="80" height="80" loading="lazy">
-                                </div>
-                                <div class="author-info">
-                                    <p class="author-name">Sara Castellanos</p>
-                                    <p class="author-title">Founder, PRONOIA DETAILS</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-navigation">
-                        <div class="testimonial-dot active" data-index="0"></div>
-                        <div class="testimonial-dot" data-index="1"></div>
-                        <div class="testimonial-dot" data-index="2"></div>
-                    </div>
-                </section>
-
-                <section class="section instructor-section">
-                    <h2 class="section-title">Learn From Someone Who's Done It</h2>
-                    <div class="section-content instructor-grid">
-                        <div class="instructor-image">
-                            <img src="images/alfred-speaker.jpg" alt="Alfred speaking at a tech event" class="instructor-photo" width="220" height="147" loading="lazy">
-                        </div>
-                        <div class="instructor-text">
-                            <h3>Hi, I'm Alfred.</h3>
-                            <p>I'm a creative technologist who loves teaching and exploring emerging technologies. I've worked at Harvard helping the university adopt cutting-edge tools, and even taught game design at MIT back in the Flash era.</p>
-                            
-                            <p>These days, I'm focused on helping people build powerful web apps using AI — without writing a single line of code. When I first discovered what was possible, I was skeptical. But then I built Mixcard.me using nothing but AI tools and APIs — no traditional coding required. It blew my mind, and I realized this power should be available to everyone.</p>
-                            
-                            <p>I've taught this course live, and students were able to launch their first AI-powered websites in under 20 minutes — no coding background needed.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2 class="section-title">Who This Course is For</h2>
-                    <div class="section-content">
-                        <ul>
-                            <li>Innovative professionals who want to implement solutions without waiting for approval</li>
-                            <li>Team leaders who solve problems instead of just identifying them</li>
-                            <li>Entrepreneurs and business owners turning ideas into assets without technical debt</li>
-                            <li>Freelancers expanding their service offerings beyond traditional boundaries</li>
-                            <li>Forward-thinkers building a portfolio of skills that amplify their impact in any setting</li>
-                        </ul>
-                        <p><strong>If you've got creativity and a little curiosity — this will unlock a whole new world.</strong></p>
-                    </div>
-                </section>
-
-                <section class="section bonus-section">
-                    <h2 class="section-title">Start Building Your First AI-Powered Project Today</h2>
-                    <div class="section-content">
-                        <p>In your first lesson, you'll learn:</p>
-                        <ul>
-                            <li><strong>Build</strong> a functioning interactive web application that you conceptualized</li>
-                            <li><strong>Master</strong> the exact AI prompting techniques that unlock technical creation</li>
-                            <li><strong>Share</strong> your creation online instantly, for free</li>
-                            <li><strong>Understand</strong> the framework that will let you build increasingly sophisticated tools</li>
-                            <li><strong>Experience</strong> the pride that comes from saying "I built this myself"</li>
-                        </ul>
-                        <div class="waitlist-cta">
-                            <div class="waitlist-featured" id="waitlist-bonus">
-                                <div class="waitlist-label"><span class="emoji">✨</span> AMPLIFY YOUR SKILLS — START BUILDING TODAY <span class="emoji">✨</span></div>
-                                <div class="waitlist-form-container">
-                                    <p class="discount-text">Get Immediate Access to Your New AI Toolkit</p>
-                                    <p class="lesson-description">Begin your journey from idea to implementation</p>
-                                    <div class="ml-embedded" data-form="TWxlYS"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2 class="section-title">What This New Capability Unlocks</h2>
-                    <div class="section-content">
-                        <ul>
-                            <li>Implementation power that turns your ideas into reality within days, not months</li>
-                            <li>Creative freedom to build without technical limitations</li>
-                            <li>The ability to prototype quickly and refine based on real feedback</li>
-                            <li>A growing portfolio of custom tools that showcase your innovative thinking</li>
-                            <li>Confidence to approach challenges with a "I can build a solution for that" mindset</li>
-                        </ul>
-                        <p><strong>This isn't just a course — it's your launchpad.</strong></p>
-                    </div>
-                </section>
-
-               
-
-                <section class="section hero-callout">
-                    <p>
-                      <strong>Every element of this page was brought to life using AI tools</strong> — not expensive web developers, not restrictive templates.<br><br>
-                      Everything you see demonstrates what's possible when you know how to collaborate with AI effectively: the transformation of ideas into reality through intelligent partnership.
-                    </p>
-                  </section>
-
-                <section class="section faq-section">
-                    <h2 class="section-title">Got Questions?</h2>
-                    <div class="section-content">
-                        <div class="faq-item">
-                            <div class="faq-question">I've never coded. Can I really do this?</div>
-                            <div class="faq-answer">
-                                <p>Yes. Most people who go through this have zero coding experience — and are blown away by what they build.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">What if I don't have an idea yet?</div>
-                            <div class="faq-answer">
-                                <p>We'll help you find one. You likely have something already — a workflow, a process, a tool you wish existed. This course helps surface it and bring it to life.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">How is this different from no-code platforms?</div>
-                            <div class="faq-answer">
-                                <p>This isn't drag-and-drop. It's smarter. You'll learn how to actually collaborate with AI to build flexible, custom solutions that adapt to what you need.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">Is this a coding bootcamp?</div>
-                            <div class="faq-answer">
-                                <p>Nope. This skips the traditional code-learning curve and shows you how to work with AI like a creative partner — not like a student learning syntax.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-
-
-                            <div class="faq-question">I tried other AI builders but got stuck — how is this different?</div>
-                            <div class="faq-answer">
-                                <p>Most AI builders give you a flashy prototype but not real control. You can't fix bugs, customize features, or launch something production-ready. This course goes one level deeper — giving you just enough power to build, edit, and ship real tools using AI. If you've already started with a builder, you can even take that code and level it up here.</p>
-                            </div>
-                          </div>
-                    </div>
-                </section>
-
-                <section class="cta-section">
-                    <div id="p5-container-footer"></div>
-                   
-                    <p class="cohort-text">Spots are limited — join now and be part of the first cohort.</p>
-                    <div class="waitlist-featured" id="waitlist-footer">
-                        <div class="waitlist-label"><span class="emoji">✨</span> AMPLIFY YOUR SKILLS — START BUILDING TODAY <span class="emoji">✨</span></div>
-                        <div class="waitlist-form-container">
-                                             <p class="discount-text">Get Immediate Access to Your New AI Toolkit</p>
-                        <p class="lesson-description">Begin your journey from idea to implementation</p>    
-                        <div class="ml-embedded" data-form="TWxlYS"></div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Load JavaScript with defer for better performance -->
-    <script src="js/min/main.min.js" defer></script>
-    
-    <!-- Scroll to waitlist function -->
-    <script>
-        function scrollToWaitlist() {
-            const waitlistElement = document.getElementById('waitlist-main');
-            if (waitlistElement) {
-                waitlistElement.scrollIntoView({ behavior: 'smooth' });
+<div class="main-content">
+    <section class="section testimonials-section">
+        <h2 class="section-title">They shipped AI made websites in under 1 hour</h2>
+
+        <div class="testimonial-arrow prev" aria-label="Previous testimonial"></div>
+        <div class="testimonial-arrow next" aria-label="Next testimonial"></div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "Excellent hands on and practical class. We built our first app in under an hour with zero coding. Highly recommend it."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="images/mike.jpg" alt="Mike Vranjkovic" width="80" height="80" loading="lazy">
+                    </div>
+                    <div class="author-info">
+                        <p class="author-name">Mike Vranjkovic</p>
+                        <p class="author-title">Managing Partner/Cofounder, Webstreet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card active">
+                <div class="testimonial-content">
+                    "The vibe coding workshop hosted by Alfred gave me the chance to grow, connect, and have a great time doing it. I appreciated how much I learned, but even more, the community and conversations made it special. Learning vibe coding has unlocked a lot of new opportunities I had previously not thought possible. It was the perfect mix of learning and fun."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="images/ray.jpg" alt="Raymond Delacruz" width="80" height="80" loading="lazy">
+                    </div>
+                    <div class="author-info">
+                        <p class="author-name">Raymond Delacruz</p>
+                        <p class="author-title">Product Manager</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "I launched an amazing countdown birthday website for my boyfriend in just 30 minutes—without ever having coded before, just by prompting Cursor! 🤯 Now, I'm excited to start building my own apps that integrate with Notion. 🚀"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="images/sara.jpg" alt="Sara Castellanos" width="80" height="80" loading="lazy">
+                    </div>
+                    <div class="author-info">
+                        <p class="author-name">Sara Castellanos</p>
+                        <p class="author-title">Founder, PRONOIA DETAILS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-navigation">
+            <div class="testimonial-dot active" data-index="0"></div>
+            <div class="testimonial-dot" data-index="1"></div>
+            <div class="testimonial-dot" data-index="2"></div>
+        </div>
+    </section>
+
+    <section class="section instructor-section">
+        <div class="section-content instructor-grid">
+            <div class="instructor-image">
+                <img src="images/alfred-speaker.jpg" alt="Alfred speaking at a tech event" class="instructor-photo" width="160" height="107" loading="lazy">
+            </div>
+            <div class="instructor-text">
+                <h2 class="section-title instructor-title">Learn From Someone Who's Done It</h2>
+                <p>Taught emerging tech @ Harvard & MIT · Built <a href="https://mixcard.me" target="_blank">Mixcard.me</a> with zero code.</p>
+                <p><a href="#" id="read-story-link">Read my story here</a></p>
+            </div>
+        </div>
+    </section>
+
+  <section class="section">
+  <h2 class="section-title">Who This Course Is For</h2>
+
+  <ul class="persona-list">
+
+    <li><span class="person-icon">👤</span><strong>Entrepreneurs and small‑business owners</strong> who want to turn ideas into real sites and apps without hiring and waiting for developers.</li>
+
+    <li><span class="person-icon">👤</span><strong>Freelancers and consultants</strong>who are looking to add AI builds to their service list—and charge more for it.</li>
+
+
+    <li><span class="person-icon">👤</span><strong>Linchpin Team Members</strong> who know how to make themselves indispensable.</li>
+
+
+  </ul>
+
+</section>
+
+   <section class="section bonus-section">
+  <h2 class="section-title">What You'll Build—Step by Step</h2>
+
+  <ul class="build-list">
+    <li><span class="check-icon">✓</span><strong>Launch an interactive site in 30 minutes</strong> Start from a blank page, write a few guided prompts, and push a live interactive site.</li>
+
+    <li><span class="check-icon">✓</span><strong>Customized Portfolio</strong> Build a site with polished styling, custom sections, and your own media so clients or employers can explore your work.</li>
+
+    <li><span class="check-icon">✓</span><strong>Build an App that uses ChatGPT‑powered recommendations</strong> Follow along to create an AI assistant that gives product recommendations and adds your affiliate code for a revenue stream.</li>
+
+    <li><span class="check-icon">✓</span><strong>Health‑coach app</strong> Build a phone app that helps you find a <i>why</i> behind your diet, tracks your calories, and figures out your next meal.</li>
+
+    <li><span class="check-icon">✓</span><strong>Skill‑stacking guarantee:</strong> Each build extends the skills your learned from the last, so your knowledge compounds.</li>
+  </ul>
+</section>
+
+
+
+
+    <section class="section hero-callout">
+        <p>
+          <strong>Every element of this page was brought to life using AI tools</strong> — not expensive web developers, not restrictive templates.<br><br>
+          Everything you see demonstrates what's possible when you know how to collaborate with AI effectively: the transformation of ideas into reality through intelligent partnership.
+        </p>
+    </section>
+
+    <section class="section faq-section">
+        <h2 class="section-title">Got Questions?</h2>
+        <div class="section-content">
+        <div class="faq-item">
+                <div class="faq-question">I tried other AI builders like bolt, lovable, replit, but got stuck — how is this different?</div>
+                <div class="faq-answer">
+                    <p>Most AI builders give you a flashy prototype but not real control. You can't fix bugs, customize features, or launch something production-ready. This course goes one level deeper — giving you just enough power to build, edit, and ship real tools using AI. If you've already started with a builder, you can even take that code and level it up here.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">I've never coded. Can I really do this?</div>
+                <div class="faq-answer">
+                    <p>Yes. Most people who go through this have zero coding experience — and are blown away by what they build.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What if I don't have an idea yet?</div>
+                <div class="faq-answer">
+                    <p>We'll help you find one. You likely have something already — a workflow, a process, a tool you wish existed. This course helps surface it and bring it to life.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How is this different from no-code platforms?</div>
+                <div class="faq-answer">
+                    <p>This isn't drag-and-drop. It's smarter. You'll learn how to actually collaborate with AI to build flexible, custom solutions that adapt to what you need.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is this a coding bootcamp?</div>
+                <div class="faq-answer">
+                    <p>Nope. This skips the traditional code-learning curve and shows you how to work with AI like a creative partner — not like a student learning syntax.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="maker-cta">
+            <a href="https://course.unlockvibecoding.com/ai-vibe-coding-essentials/buy?coupon=LAUNCHSPECIAL" class="maker-button">Enroll Now & Start Building</a>
+            <div class="mini-guarantee">
+                <p class="mini-guarantee-text">7-Day 100% Money-Back Guarantee</p>
+                <p class="mini-guarantee-subtext">Try the course risk-free—finish the first project and decide.</p>
+                <div class="trust-badge">
+                    <img src="images/trust-badge.png" alt="Guaranteed safe & secure checkout" width="300" class="trust-badge-img">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+</div>
+
+<!-- Story Modal -->
+<div id="story-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>About Alfred</h2>
+        <div class="modal-body">
+            <p><strong>Hi, I'm Alfred!</strong></p>
+            <p>I'm a creative technologist who loves teaching and exploring emerging technologies. I've worked at Harvard helping the university adopt cutting-edge tools, and even taught game design at MIT back in the Flash era.</p>
+            
+            <p>These days, I'm focused on helping people build powerful web apps using AI — without writing a single line of code. When I first discovered what was possible, I was skeptical. But then I built Mixcard.me using nothing but AI tools and APIs — no traditional coding required. It blew my mind, and I realized this power should be available to everyone.</p>
+            
+            <p>I've taught this course live, and students were able to launch their first AI-powered websites in under 20 minutes — no coding background needed.</p>
+            
+            <p>My passion is making technology accessible to creative problem-solvers regardless of their technical background. I believe everyone should have the ability to bring their ideas to life without waiting for developer resources or learning complex coding languages.</p>
+            
+            <p>Throughout my career, I've seen how the gap between "having an idea" and "building the solution" prevents many brilliant concepts from becoming reality. AI is finally bridging that gap, and I'm excited to show you exactly how to use these tools to your advantage.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Load JavaScript with defer for better performance -->
+<script src="js/min/main.min.js" defer></script>
+
+<!-- Scroll to waitlist function -->
+<script>
+    function scrollToWaitlist() {
+        const waitlistElement = document.getElementById('waitlist-main');
+        if (waitlistElement) {
+            waitlistElement.scrollIntoView({ behavior: 'smooth' });
+            
+            // Add a subtle highlight effect
+            waitlistElement.classList.add('highlight-waitlist');
+            setTimeout(() => {
+                waitlistElement.classList.remove('highlight-waitlist');
+            }, 1500);
+        }
+    }
+</script>
+
+<!-- Modal functionality -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get modal elements
+        const modal = document.getElementById('story-modal');
+        const modalLink = document.getElementById('read-story-link');
+        const closeBtn = document.querySelector('.close-modal');
+        
+        // Open modal when link is clicked
+        modalLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        });
+        
+        // Close modal when X is clicked
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Re-enable scrolling
+            
+            // Fully hide the modal after transition completes
+            setTimeout(() => {
+                if (!modal.classList.contains('show')) {
+                    modal.style.display = 'none';
+                }
+            }, 300);
+        });
+        
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = ''; // Re-enable scrolling
                 
-                // Add a subtle highlight effect
-                waitlistElement.classList.add('highlight-waitlist');
+                // Fully hide the modal after transition completes
                 setTimeout(() => {
-                    waitlistElement.classList.remove('highlight-waitlist');
-                }, 1500);
+                    if (!modal.classList.contains('show')) {
+                        modal.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+        
+        // Fix testimonial heights
+        function setTestimonialHeights() {
+            const testimonialGrid = document.querySelector('.testimonials-grid');
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            
+            if (!testimonialGrid || !testimonials.length) return;
+            
+            // Reset any previously set heights
+            testimonialGrid.style.minHeight = '';
+            
+            // Make all testimonials visible but transparent for measuring
+            testimonials.forEach(card => {
+                card.style.display = 'block';
+                card.style.opacity = '0';
+                card.style.position = 'absolute';
+                card.style.zIndex = '0';
+                card.style.height = 'auto'; // Let it size to content
+            });
+            
+            // Find the tallest testimonial
+            let maxHeight = 0;
+            testimonials.forEach(card => {
+                const height = card.offsetHeight;
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+            
+            // Add some padding for safety
+            maxHeight += 30;
+            
+            // Check against minimum heights for different screen sizes
+            let minHeight = 250; // Default minimum
+            
+            if (window.innerWidth <= 480) {
+                minHeight = 380; // Small mobile minimum
+            } else if (window.innerWidth <= 768) {
+                minHeight = 300; // Mobile/tablet minimum
+            }
+            
+            // Use the larger of calculated height or minimum height
+            const finalHeight = Math.max(maxHeight, minHeight);
+            
+            // Set the grid container height
+            testimonialGrid.style.minHeight = `${finalHeight}px`;
+            
+            // Reset cards to their proper state
+            testimonials.forEach(card => {
+                if (!card.classList.contains('active')) {
+                    card.style.display = '';
+                    card.style.opacity = '';
+                }
+            });
+            
+            // Make sure only the active one is visible
+            const activeCard = document.querySelector('.testimonial-card.active');
+            if (activeCard) {
+                activeCard.style.display = 'block';
+                activeCard.style.opacity = '1';
+                activeCard.style.zIndex = '5';
+            }
+            
+            // Fix for any extraneous images that might be appearing
+            const extraImages = document.querySelectorAll('.testimonials-section > img:not([class]), .testimonials-grid + img:not([class]), .testimonial-navigation + img:not([class])');
+            extraImages.forEach(img => {
+                img.style.display = 'none';
+            });
+        }
+        
+        // Run on page load
+        setTestimonialHeights();
+        
+        // Run whenever window is resized
+        window.addEventListener('resize', setTestimonialHeights);
+        
+        // Fix testimonial navigation
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const prevArrow = document.querySelector('.testimonial-arrow.prev');
+        const nextArrow = document.querySelector('.testimonial-arrow.next');
+        
+        if (testimonialDots.length && testimonialCards.length) {
+            // Update slides when dots are clicked
+            testimonialDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    // Remove active class from all cards and dots
+                    testimonialCards.forEach(card => card.classList.remove('active'));
+                    testimonialDots.forEach(dot => dot.classList.remove('active'));
+                    
+                    // Add active class to current card and dot
+                    testimonialCards[index].classList.add('active');
+                    dot.classList.add('active');
+                    
+                    // Run the height setting function again
+                    setTestimonialHeights();
+                });
+            });
+            
+            // Previous arrow functionality
+            if (prevArrow) {
+                prevArrow.addEventListener('click', () => {
+                    // Find current active index
+                    let activeIndex = 0;
+                    testimonialDots.forEach((dot, index) => {
+                        if (dot.classList.contains('active')) {
+                            activeIndex = index;
+                        }
+                    });
+                    
+                    // Calculate previous index
+                    const prevIndex = activeIndex === 0 ? testimonialCards.length - 1 : activeIndex - 1;
+                    
+                    // Update active classes
+                    testimonialCards.forEach(card => card.classList.remove('active'));
+                    testimonialDots.forEach(dot => dot.classList.remove('active'));
+                    
+                    testimonialCards[prevIndex].classList.add('active');
+                    testimonialDots[prevIndex].classList.add('active');
+                    
+                    // Run the height setting function again
+                    setTestimonialHeights();
+                });
+            }
+            
+            // Next arrow functionality
+            if (nextArrow) {
+                nextArrow.addEventListener('click', () => {
+                    // Find current active index
+                    let activeIndex = 0;
+                    testimonialDots.forEach((dot, index) => {
+                        if (dot.classList.contains('active')) {
+                            activeIndex = index;
+                        }
+                    });
+                    
+                    // Calculate next index
+                    const nextIndex = activeIndex === testimonialCards.length - 1 ? 0 : activeIndex + 1;
+                    
+                    // Update active classes
+                    testimonialCards.forEach(card => card.classList.remove('active'));
+                    testimonialDots.forEach(dot => dot.classList.remove('active'));
+                    
+                    testimonialCards[nextIndex].classList.add('active');
+                    testimonialDots[nextIndex].classList.add('active');
+                    
+                    // Run the height setting function again
+                    setTestimonialHeights();
+                });
             }
         }
-    </script>
+    });
+</script>
 </body>
 </html> 
