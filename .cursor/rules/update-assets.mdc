@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Asset Update Guidelines
+
+## CSS Updates
+
+The main CSS file for the site is [css/min/main.min.css](mdc:css/min/main.min.css). When making style changes:
+
+1. Always modify this file directly instead of adding inline styles to HTML elements
+2. Use the existing CSS variables defined at the top of the file (e.g., `--primary-color`, `--secondary-color`)
+3. Follow the existing naming conventions and organization
+4. Keep responsive design in mind - check the mobile media queries at the bottom
+
+## JavaScript Updates
+
+The main JavaScript file is [js/min/main.min.js](mdc:js/min/main.min.js). When making functionality changes:
+
+1. Add new functions to this file instead of adding inline JavaScript in HTML
+2. Use the existing event listener pattern which waits for `DOMContentLoaded`
+3. Maintain the minified format for consistency
+4. Test all interactions on both desktop and mobile
+
+## HTML Structure
+
+The [index.html](mdc:index.html) file references these assets. When updating:
+
+1. Don't add inline styles or scripts to HTML elements
+2. If new assets are needed, add them as external files and reference them properly
+3. Maintain the existing HTML structure and semantic markup
+4. Keep accessibility in mind by preserving ARIA attributes
+
+## Version Control
+
+When updating assets, increment the version parameter in the file references to prevent caching issues:
+
+```html
+<link rel="stylesheet" href="css/min/main.min.css?v=1.3">
+<script src="js/min/main.min.js?v=1.2" defer></script>
+```
