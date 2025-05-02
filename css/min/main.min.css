@@ -233,7 +233,146 @@
 
 /* Add padding to the body to account for the fixed header */
 body {
-    padding-top: 0;
+    padding-top: 0; /* No default padding */
+    margin: 0;
+}
+
+@media (min-width: 769px) {
+    body {
+        padding-top: 0; /* Still no default padding on desktop */
+    }
+    
+    .page-wrapper {
+        padding-top: 0; /* No default padding on desktop wrapper */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 0 !important; /* Force no padding */
+    }
+    
+    .page-wrapper {
+        padding: 0.5rem;
+        padding-top: 0 !important; /* Force no top padding */
+        margin-top: 0 !important;
+    }
+    
+    .page-container {
+        margin-top: 0 !important;
+    }
+    
+    .hero {
+        padding: 1.5rem 1rem 1.5rem;
+        margin-top: 0 !important;
+        overflow: visible;
+        box-sizing: border-box;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+    
+    .maker-section {
+        padding-top: 0.5rem !important;
+        margin-top: 0 !important;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .section {
+        margin: .5rem auto;
+    }
+    
+    .cta-section {
+        padding: 1.25rem 1rem 1.5rem;
+        margin: 1rem -1rem -1rem;
+    }
+    
+    .cta-section .section-title {
+        font-size: 1.75rem;
+        margin-bottom: .5rem;
+    }
+    
+    .cta-section .benefits-list {
+        gap: .3rem .8rem;
+        margin: .4rem auto;
+        max-width: 95%;
+    }
+    
+    .cta-section .benefits-list li {
+        font-size: .85rem;
+    }
+    
+    .cta-section .benefits-list li:not(:last-child)::after {
+        margin-left: .5rem;
+    }
+    
+    .cta-section p {
+        margin: .3rem auto;
+        font-size: .85rem;
+        max-width: 95%;
+    }
+    
+    .cta-section .cohort-text {
+        margin-top: .8rem;
+        margin-bottom: 1rem;
+        font-size: .9rem;
+    }
+    
+    .word {
+        font-size: clamp(2rem,8vw,2.5rem);
+        line-height: 1;
+        margin: 0 auto !important;
+        box-sizing: border-box;
+        width: 100%;
+        text-align: center !important;
+    }
+    
+    .title {
+        font-size: clamp(1.3rem,5vw,1.6rem);
+        margin: 0.3rem auto !important;
+        width: 100%;
+        text-align: center !important;
+    }
+    
+    .subtitle {
+        font-size: 0.8rem;
+        padding: 3px 8px;
+        margin: 0.3rem auto !important;
+        text-align: center !important;
+    }
+    
+    .hero-content {
+        padding: 0;
+        margin: 0 auto !important;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: center !important;
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+    .hero {
+        padding-top: 0.5rem !important;
+        margin-top: 0 !important;
+    }
+    
+    .page-wrapper {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+}
+
+/* iPhone-specific fixes */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding: 0.5rem 0.5rem 1.5rem !important;
+        margin-top: 0 !important;
+    }
 }
 
 .banner-content {
@@ -904,6 +1043,9 @@ body {
     
     .instructor-title {
         text-align: center;
+        font-size: 1.6rem;
+        white-space: nowrap;
+        letter-spacing: 0;
     }
     
     .instructor-image img {
@@ -968,6 +1110,9 @@ body {
     margin-bottom: 25px;
     line-height: 1.6;
     font-family: 'Space Mono', monospace;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .persona-list strong {
@@ -1174,5 +1319,27 @@ body {
     .author-image {
         width: 60px;
         height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .persona-list li {
+        padding-left: 35px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+    
+    .persona-list strong {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .persona-list li {
+        padding-left: 30px;
+        word-break: break-word;
+        hyphens: auto;
     }
 } 
