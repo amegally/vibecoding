@@ -1342,4 +1342,8 @@ body {
         word-break: break-word;
         hyphens: auto;
     }
-} 
+}
+
+.faq-email{margin:1.5rem auto 1rem;text-align:center;font-size:.95rem;color:var(--text-color);max-width:90%}.faq-email a{color:var(--highlight-color);text-decoration:none;transition:all .2s ease}.faq-email a:hover{text-decoration:underline}
+
+.author-image{width:80px;height:80px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--secondary-color)} 
